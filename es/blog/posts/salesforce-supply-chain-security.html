@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z0WWKP5NB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8Z0WWKP5NB');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incidente Salesforce–Salesloft: análisis completo y lecciones para la seguridad SaaS - 360 Security Group</title>
+    <meta name="description" content="Análisis detallado de la brecha Salesforce–Salesloft Drift de 2025: cómo UNC6395 comprometió GitHub, pivotó a AWS y robó tokens OAuth para acceder a cientos de instancias de Salesforce, con IOCs y controles defensivos.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html">
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+    <link rel="alternate" hreflang="es" href="https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html">
+    <meta property="og:title" content="Brecha Salesforce–Salesloft Drift: robo de tokens OAuth y ataque a Salesforce">
+    <meta property="og:description" content="Descubra cómo UNC6395 comprometió la integración Drift de Salesloft, robó tokens OAuth y exfiltró datos de Salesforce, junto con TTPs, IOCs y controles recomendados.">
+    <meta property="og:image" content="https://www.360sec.com/og-image.jpg">
+    <meta property="og:site_name" content="360 Security Group">
+    <meta property="article:published_time" content="2025-09-15T09:00:00Z">
+    <meta property="article:author" content="Dra. Rebecca Martinez">
+    <meta property="article:section" content="Seguridad de la Cadena de Suministro">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html">
+    <meta name="twitter:title" content="Brecha Salesforce–Salesloft Drift: análisis de UNC6395">
+    <meta name="twitter:description" content="Desglose técnico del ataque Supply Chain de agosto 2025: GitHub → AWS → robo de tokens OAuth → exfiltración de datos de Salesforce. Incluye IOCs y controles recomendados.">
+    <meta name="twitter:image" content="https://www.360sec.com/twitter-card.jpg">
+    <meta name="twitter:site" content="@360sec">
+
+    <!-- Favicon and Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.360sec.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.360sec.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.360sec.com/favicon-16x16.png">
+    <link rel="manifest" href="https://www.360sec.com/site.webmanifest">
+    <link rel="mask-icon" href="https://www.360sec.com/safari-pinned-tab.svg" color="#2F2A99">
+    <link rel="shortcut icon" href="https://www.360sec.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2F2A99">
+    <meta name="msapplication-config" content="https://www.360sec.com/browserconfig.xml">
+    <meta name="theme-color" content="#2F2A99">
+
+    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Brecha Salesforce–Salesloft Drift: robo de tokens OAuth y ataque a Salesforce",
+      "description": "Análisis exhaustivo de la brecha Salesforce–Salesloft Drift de 2025, las tácticas de UNC6395 y los controles que las organizaciones deben adoptar de inmediato.",
+      "image": "https://www.360sec.com/og-image.jpg",
+      "datePublished": "2025-09-15T09:00:00Z",
+      "dateModified": "2025-09-15T09:00:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "Dra. Rebecca Martinez",
+        "jobTitle": "Investigadora Principal de Seguridad"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "360 Security Group",
+        "url": "https://www.360sec.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.360sec.com/logo/360-security-group_light.svg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html"
+      },
+      "keywords": "incidente Salesforce, brecha Salesloft Drift, ataque a la cadena de suministro, seguridad SaaS, compromiso ISV, robo de tokens OAuth, respuesta a incidentes",
+      "articleSection": "Seguridad de la Cadena de Suministro",
+      "wordCount": 1150
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.360sec.com/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.360sec.com/es/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Incidente Salesforce–Salesloft",
+          "item": "https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-right">
+                    <a href="../index.html" class="utility-link">Blog</a>
+                    <div class="language-selector">
+                        <button class="lang-btn" aria-label="Seleccionar idioma">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2 9h14M9 2c-2 2.5-2 5.5-2 7s0 4.5 2 7M9 2c2 2.5 2 5.5 2 7s0 4.5-2 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="arrow-down">▾</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="../../blog/posts/salesforce-supply-chain-security.html" class="lang-option">
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </a>
+                            <a href="salesforce-supply-chain-security.html" class="lang-option active">
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <a href="../../index.html">
+                        <img src="../../../logo/360-security-group_light.svg" alt="360 Security Group" class="logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link-dropdown">Servicios Defensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../../services/mdr.html">Detección y Respuesta Gestionada</a>
+                            <a href="../../services/xdr.html">Detección y Respuesta Extendida</a>
+                            <a href="../../services/cti.html">Inteligencia de Amenazas Cibernéticas</a>
+                            <a href="../../services/threat-hunting.html">Búsqueda de Amenazas</a>
+                            <a href="../../services/automation.html">Automatización de Seguridad</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../../index.html#offensive" class="nav-link-dropdown">Servicios Ofensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../../services/penetration-testing.html">Pruebas de Penetración</a>
+                            <a href="../../services/red-teaming.html">Red Team</a>
+                            <a href="../../services/breach-simulation.html">Simulación de Brechas y Ataques</a>
+                            <a href="../../services/code-review.html">Revisión de Código Seguro</a>
+                            <a href="../../services/ai-security-testing.html">Pruebas de Seguridad de IA</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../index.html" class="nav-link-dropdown">Recursos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../index.html">Blog</a>
+                        </div>
+                    </div>
+                    <a href="../../index.html#company">Empresa</a>
+                    <a href="../../index.html#contact" class="btn-primary">Contáctenos</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Alternar menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <div class="post-header-content">
+                <div class="blog-breadcrumb">
+                    <a href="../../index.html">Inicio</a> / <a href="../index.html">Blog</a> / Incidente Salesforce–Salesloft
+                </div>
+                <div class="post-meta-header">
+                    <span class="blog-category">Cadena de Suministro</span>
+                    <span class="blog-date">15 de septiembre, 2025</span>
+                    <span class="blog-reading-time">12 min de lectura</span>
+                </div>
+                <h1 class="post-title">Anatomía del incidente Salesforce–Salesloft Drift</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <section class="post-content-wrapper">
+        <div class="container">
+            <!-- Author Box -->
+            <div class="post-author-box">
+                <div class="post-author-avatar">DR</div>
+                <div class="post-author-details">
+                    <h3>Dra. Rebecca Martinez</h3>
+                    <p>Investigadora principal de seguridad en 360 Security Group. Lidera programas globales de seguridad SaaS y cadena de suministro.</p>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <article class="post-content">
+                <p>
+                    En agosto de 2025 un sofisticado ataque a la cadena de suministro comprometió <strong>Drift</strong>, la integración de chatbots de <strong>Salesloft</strong>, y permitió al grupo <strong>UNC6395 (GRUB1)</strong> robar credenciales OAuth y extraer datos de cientos de instancias de Salesforce en todo el mundo. La intrusión se gestó durante meses: los atacantes obtuvieron acceso persistente al GitHub de Salesloft entre marzo y junio de 2025, pivotaron hacia la infraestructura de AWS del proveedor y extrajeron tokens válidos utilizados por la integración Drift–Salesforce. Entre el 8 y el 18 de agosto exfiltraron información de contactos, casos de soporte y credenciales sensibles pertenecientes a empresas como Cloudflare, Palo Alto Networks y Zscaler. A continuación desglosamos el ataque, los fallos defensivos y los controles que debe aplicar su organización para proteger su ecosistema SaaS.
+                </p>
+
+                <h2>Cronología del incidente</h2>
+                <ul>
+                    <li><strong>Marzo–junio de 2025:</strong> UNC6395 compromete la cuenta de GitHub de Salesloft, descarga múltiples repositorios y crea flujos maliciosos capaces de desplegar código en AWS.</li>
+                    <li><strong>8 de agosto de 2025:</strong> Comienza la campaña de exfiltración utilizando tokens OAuth robados de la integración Drift–Salesforce.</li>
+                    <li><strong>9 de agosto:</strong> En Cloudflare los atacantes realizan reconocimiento con Trufflehog desde la IP <code>44.215.108.109</code>.</li>
+                    <li><strong>12–17 de agosto:</strong> UNC6395 accede de forma sistemática a orgs de Salesforce en Cloudflare, Palo Alto Networks, Zscaler y cientos de clientes adicionales, extrayendo datos de contacto y casos de soporte.</li>
+                    <li><strong>17 de agosto:</strong> Los atacantes cambian a la IP <code>208.68.36.90</code> y ejecutan un job del Bulk API 2.0, obteniendo el historial de casos de Cloudflare en apenas tres minutos.</li>
+                    <li><strong>18 de agosto:</strong> Finaliza la fase activa de robo de datos cuando varias víctimas detectan actividad API anómala.</li>
+                    <li><strong>20 de agosto:</strong> Salesloft divulga públicamente el incidente que afecta a Drift.</li>
+                    <li><strong>23 de agosto:</strong> Salesforce y Salesloft notifican a clientes afectados, incluidos Cloudflare y Zscaler.</li>
+                    <li><strong>26 de agosto:</strong> Google Threat Intelligence emite una alerta sobre el robo de tokens OAuth y la exfiltración masiva de datos.</li>
+                    <li><strong>27 de agosto:</strong> Salesloft contrata a Mandiant para realizar una investigación forense completa.</li>
+                    <li><strong>28 de agosto:</strong> Salesforce bloquea globalmente todas las integraciones de Drift; Google actualiza su aviso de amenaza.</li>
+                    <li><strong>1 de septiembre:</strong> Salesloft comunica que el incidente se encuentra contenido, aunque Drift permanece deshabilitado mientras se restauran las integraciones del resto de la plataforma.</li>
+                    <li><strong>2 de septiembre:</strong> Cloudflare notifica formalmente a sus clientes mientras los atacantes lanzan una campaña de extorsión para impedir la divulgación de los datos robados.</li>
+                </ul>
+
+                <h2>Análisis del camino de ataque</h2>
+                <p>
+                    El ataque siguió el patrón <strong>GitHub → AWS → Tokens OAuth → Datos de Salesforce</strong>. Cada etapa permitió a los agresores ampliar privilegios y mantener persistencia sin activar controles tradicionales.
+                </p>
+
+                <h3>Etapa 1: Compromiso de GitHub (marzo–junio 2025)</h3>
+                <p>
+                    El grupo UNC6395 obtuvo acceso persistente al GitHub de Salesloft mediante mecanismos aún no divulgados. Desde allí descargó repositorios y creó workflows maliciosos. En dichos repositorios residían claves de acceso de AWS utilizadas en procesos de despliegue —“identidades en tránsito” que pasan por alto la autenticación interactiva tradicional.
+                </p>
+
+                <h3>Etapa 2: Pivot a AWS (junio–agosto 2025)</h3>
+                <p>
+                    Con las claves robadas, los atacantes asumieron roles de IAM con privilegios suficientes para consultar secretos en AWS Systems Manager y AWS Secrets Manager. También accedieron a configuraciones que contenían credenciales del conector Drift.
+                </p>
+
+                <h3>Etapa 3: Robo de tokens OAuth (julio–agosto 2025)</h3>
+                <p>
+                    Los secretos extraídos incluían tokens OAuth de Drift que otorgaban acceso a Salesforce, además de credenciales de otras automatizaciones conectadas. Como estos tokens estaban configurados con scopes amplios (Modify All Data, API, refresh_token), bastó con reutilizarlos para suplantar las integraciones legítimas sin disparar MFA ni registros de sesión interactiva.
+                </p>
+
+                <h3>Etapa 4: Exfiltración de datos desde Salesforce (8–18 de agosto 2025)</h3>
+                <p>
+                    Armados con los tokens, los atacantes enumeraron esquemas (<code>/sobjects/*/describe</code>), consultaron objetos críticos mediante REST y SOQL y finalmente utilizaron Bulk API 2.0 para exportar grandes volúmenes de información, incluidos casos de soporte con credenciales incrustadas, contactos con PII y datos comerciales sensibles.
+                </p>
+
+                <h2>Impacto empresarial</h2>
+                <ul>
+                    <li><strong>Exposición de datos:</strong> Se exfiltraron PII, registros de soporte, cadencias de ventas y credenciales almacenadas en campos personalizados.</li>
+                    <li><strong>Interrupción de automatizaciones:</strong> Organizaciones suspendieron cadencias, flujos iPaaS y bots RPA conectados a Drift para evitar movimientos laterales adicionales.</li>
+                    <li><strong>Riesgo de identidad:</strong> Tokens reutilizados permitieron pivotar a data lakes, herramientas de marketing y otras plataformas integradas.</li>
+                    <li><strong>Costos de respuesta:</strong> Auditorías de emergencia, notificaciones regulatorias, y renegociaciones de contratos con partners y clientes.</li>
+                </ul>
+
+                <h2>Lecciones clave para Salesforce y Salesloft</h2>
+                <h3>1. Elimine las auto-actualizaciones de paquetes privilegiados</h3>
+                <p>
+                    Las actualizaciones deben pasar por un proceso de revisión técnica y de seguridad en entornos sandbox antes de llegar a producción, especialmente si el paquete dispone de scopes administrativos.
+                </p>
+
+                <h3>2. Reduzca y supervise los scopes OAuth</h3>
+                <p>
+                    Emplee scopes granulares, revise logs de OAuth desde Security Center o Event Monitoring y configure alertas frente a tokens reusados desde IP desconocidas.
+                </p>
+
+                <h3>3. Proteja las “identidades en tránsito”</h3>
+                <p>
+                    Exija vaults dedicados para credenciales en CI/CD, rotación automática y firmas de commits. Los secretos en repositorios deben ser tratados como incidentes de prioridad alta.</p>
+
+                <h3>4. Supervise las automatizaciones conectadas</h3>
+                <p>
+                    Audite Flows y callouts creados automáticamente por paquetes externos, limite destinos HTTP y aplique listas blancas estrictas.</p>
+
+                <h3>5. Prepare playbooks SaaS específicos</h3>
+                <p>
+                    Incluya guiones de revocación de tokens, validación con proveedores y notificaciones combinadas entre equipos de Salesforce, SecOps, legal y compras.</p>
+
+                <h2>Lista de acciones inmediatas</h2>
+                <ul class="checklist">
+                    <li>Verifique si su organización utilizó Drift durante marzo–septiembre de 2025; en caso afirmativo asuma compromiso y ejecute un plan de respuesta.</li>
+                    <li>Descargue Event Monitoring para el periodo 8–18 de agosto y busque actividad desde las IP <code>44.215.108.109</code> y <code>208.68.36.90</code>, así como consultas masivas o llamadas a <code>/sobjects/*/describe</code>.</li>
+                    <li>Revoque todos los tokens OAuth asociados a Drift y regenere credenciales de sistemas aguas abajo que consuman datos de Salesforce a través de Salesloft.</li>
+                    <li>Audite casos de soporte y objetos personalizados en busca de credenciales embebidas; rote inmediatamente cualquier secreto encontrado.</li>
+                    <li>Revise cada aplicación conectada en Setup → App Manager y reduzca permisos a mínimo privilegio.</li>
+                    <li>Solicite a Salesloft y Salesforce confirmación de impacto y IOCs específicos para su tenant.</li>
+                    <li>Actualice cuestionarios de riesgo para exigir evidencia sobre controles de CI/CD y gestión de credenciales.</li>
+                </ul>
+
+                <h2>Cómo ayuda 360 Security Group tras la brecha</h2>
+                <p>
+                    360 Security Group acompaña a las organizaciones en la recuperación y refuerzo de su cadena de suministro SaaS:</p>
+                <ul>
+                    <li><a href="../../services/cti.html">Inteligencia de Cadena de Suministro</a> que monitorea infraestructura de UNC6395/GRUB1, IOCs del incidente Drift y amenazas emergentes contra integraciones de AppExchange.</li>
+                    <li><a href="../../services/threat-hunting.html">Threat Hunting dirigido</a> sobre Event Monitoring, buscando patrones de reconocimiento, abuso de Bulk API y persistencia mediante tokens secundarios.</li>
+                    <li><a href="../../services/automation.html">Automatización de Seguridad</a> para rotar tokens, auditar scopes y recopilar attestation de proveedores con seguimiento de cumplimiento.</li>
+                    <li><a href="../../services/penetration-testing.html">Simulaciones de Brechas SaaS</a> que reproducen escenarios de compromiso de repositorios GitHub, replay de tokens OAuth y exfiltración masiva en Salesforce.</li>
+                    <li><a href="../../services/code-review.html">Evaluaciones de Proveedores ISV</a> centradas en seguridad de código, controles de CI/CD y gestión de credenciales.</li>
+                </ul>
+
+                <p>
+                    La brecha Salesforce–Salesloft demuestra que los límites de confianza en SaaS se extienden hasta las prácticas de DevOps de los proveedores, las cadenas de integración y la higiene de credenciales. Tratar repositorios GitHub, tokens OAuth y datos de soporte como superficies críticas permite detectar amenazas antes, contener brechas con rapidez y emerger más resiliente frente al próximo ataque de cadena de suministro.
+                </p>
+
+                <!-- Tags -->
+                <div class="post-tags">
+                    <h4>Etiquetas</h4>
+                    <div class="tag-list">
+                        <a href="#" class="tag">Salesforce</a>
+                        <a href="#" class="tag">Salesloft</a>
+                        <a href="#" class="tag">Drift</a>
+                        <a href="#" class="tag">Cadena de Suministro</a>
+                        <a href="#" class="tag">Seguridad SaaS</a>
+                        <a href="#" class="tag">OAuth</a>
+                        <a href="#" class="tag">Respuesta a Incidentes</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="../../../logo/360-security-group_light.svg" alt="360 Security Group" class="footer-logo">
+                    <p>Soluciones líderes en ciberseguridad para la empresa moderna.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Defensivos</h4>
+                    <ul>
+                        <li><a href="../../services/mdr.html">MDR</a></li>
+                        <li><a href="../../services/xdr.html">XDR</a></li>
+                        <li><a href="../../services/cti.html">Inteligencia de Amenazas</a></li>
+                        <li><a href="../../services/threat-hunting.html">Búsqueda de Amenazas</a></li>
+                        <li><a href="../../services/automation.html">Automatización</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Ofensivos</h4>
+                    <ul>
+                        <li><a href="../../services/penetration-testing.html">Pruebas de Penetración</a></li>
+                        <li><a href="../../services/red-teaming.html">Red Team</a></li>
+                        <li><a href="../../services/breach-simulation.html">Simulación de Brechas</a></li>
+                        <li><a href="../../services/code-review.html">Revisión de Código</a></li>
+                        <li><a href="../../services/ai-security-testing.html">Pruebas de Seguridad IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="../../index.html#company">Por qué elegirnos</a></li>
+                        <li><a href="../../index.html#experience">Nuestra experiencia</a></li>
+                        <li><a href="../index.html">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="../../index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 360 Security Group. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos del Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../script.js"></script>
+</body>
+</html>

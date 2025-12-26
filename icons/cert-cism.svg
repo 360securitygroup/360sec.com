@@ -1,0 +1,16 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradCISM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Hexagon badge -->
+  <path d="M60 12 L85 25 L85 50 L60 63 L35 50 L35 25 Z"
+        fill="url(#gradCISM)" opacity="0.15"/>
+  <path d="M60 12 L85 25 L85 50 L60 63 L35 50 L35 25 Z"
+        stroke="url(#gradCISM)" stroke-width="2" fill="none"/>
+  <!-- Text -->
+  <text x="60" y="37" text-anchor="middle" font-size="14" font-weight="bold" fill="url(#gradCISM)">CISM</text>
+  <text x="60" y="48" text-anchor="middle" font-size="6" fill="url(#gradCISM)" opacity="0.8">ISACA</text>
+</svg>

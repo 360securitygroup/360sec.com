@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z0WWKP5NB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8Z0WWKP5NB');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pruebas de Seguridad de IA - 360 Security Group</title>
+    <meta name="description" content="Pruebas especializadas para modelos ML/LLM usando ataques adversarios, inyección de prompts, extracción de modelos y envenenamiento de datos. 360 Sec cumple con marcos OWASP Top 10 LLM y MITRE ATLAS.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.360sec.com/es/services/ai-security-testing.html">
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://www.360sec.com/services/ai-security-testing.html">
+    <link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/ai-security-testing.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/ai-security-testing.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.360sec.com/es/services/ai-security-testing.html">
+    <meta property="og:title" content="Pruebas de Seguridad de IA - 360 Security Group">
+    <meta property="og:description" content="360 Security Group ofrece servicios de ciberseguridad defensiva y ofensiva potenciados por IA - MDR, XDR, threat hunting, red teaming y automatización - para detectar, responder y prevenir ataques avanzados en todo el mundo.">
+    <meta property="og:image" content="https://www.360sec.com/og-image.jpg">
+    <meta property="og:site_name" content="360 Sec">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.360sec.com/es/services/ai-security-testing.html">
+    <meta name="twitter:title" content="Pruebas de Seguridad de IA - 360 Security Group">
+    <meta name="twitter:description" content="360 Security Group ofrece servicios de ciberseguridad defensiva y ofensiva potenciados por IA - MDR, XDR, threat hunting, red teaming y automatización - para detectar, responder y prevenir ataques avanzados en todo el mundo.">
+    <meta name="twitter:image" content="https://www.360sec.com/twitter-card.jpg">
+    <meta name="twitter:site" content="@360sec">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../services/service-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Pruebas de Seguridad de IA",
+      "name": "Pruebas de Seguridad de IA",
+      "description": "360 Security Group ofrece servicios de ciberseguridad defensiva y ofensiva potenciados por IA - MDR, XDR, threat hunting, red teaming y automatización - para detectar, responder y prevenir ataques avanzados en todo el mundo.",
+      "provider": {
+        "@type": "Organization",
+        "name": "360 Security Group",
+        "url": "https://www.360sec.com"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Mundial"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.360sec.com/es/services/ai-security-testing.html"
+      },
+      "category": "Ciberseguridad",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.360sec.com/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios Ofensivos",
+          "item": "https://www.360sec.com/es/#offensive"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pruebas de Seguridad de IA",
+          "item": "https://www.360sec.com/es/services/ai-security-testing.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-right">
+                    <a href="../blog/index.html" class="utility-link">Blog</a>
+                    <div class="language-selector">
+                        <button class="lang-btn" aria-label="Seleccionar idioma">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2 9h14M9 2c-2 2.5-2 5.5-2 7s0 4.5 2 7M9 2c2 2.5 2 5.5 2 7s0 4.5-2 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="arrow-down">▾</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="../../services/ai-security-testing.html" class="lang-option">
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </a>
+                            <a href="ai-security-testing.html" class="lang-option active">
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <a href="../index.html">
+                        <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" class="logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link-dropdown">Servicios Defensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="mdr.html">Detección y Respuesta Gestionada</a>
+                            <a href="xdr.html">Detección y Respuesta Extendida</a>
+                            <a href="cti.html">Inteligencia de Amenazas Cibernéticas</a>
+                            <a href="threat-hunting.html">Búsqueda de Amenazas</a>
+                            <a href="automation.html">Automatización de Seguridad</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../index.html#offensive" class="nav-link-dropdown">Servicios Ofensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="penetration-testing.html">Pruebas de Penetración</a>
+                            <a href="red-teaming.html">Red Teaming</a>
+                            <a href="breach-simulation.html">Simulación de Brechas y Ataques</a>
+                            <a href="code-review.html">Revisión de Código Seguro</a>
+                            <a href="ai-security-testing.html">Pruebas de Seguridad de IA</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="#resources" class="nav-link-dropdown">Recursos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../blog/index.html">Blog</a>
+                        </div>
+                    </div>
+                    <a href="../index.html#company">Compañía</a>
+                    <a href="../index.html#contact" class="btn-primary">Contáctenos</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Alternar menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="service-breadcrumb">
+                    <a href="../index.html">Inicio</a> / <a href="../index.html#offensive">Servicios Ofensivos</a> / <span>Pruebas de Seguridad de IA</span>
+                </div>
+                <h1 class="service-title">
+                    Pruebas de <span class="gradient-text">Seguridad de IA</span>
+                </h1>
+                <p class="service-subtitle">
+                    Proteja sus sistemas de IA/ML y aplicaciones LLM contra amenazas emergentes. Nuestras pruebas especializadas de seguridad de IA identifican vulnerabilidades en modelos, datos de entrenamiento y aplicaciones impulsadas por IA.
+                </p>
+                <div class="service-hero-cta">
+                    <a href="../index.html#contact" class="btn-primary btn-large">Asegure su IA</a>
+                    <a href="#features" class="btn-secondary btn-large">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="service-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por Qué Elegir Nuestras Pruebas de Seguridad de IA</h2>
+                <p>Pruebas especializadas para los desafíos únicos de seguridad de IA y aprendizaje automático</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="32" cy="20" r="6" stroke="url(#gradBenefit1)" stroke-width="2"/>
+                            <circle cx="20" cy="40" r="6" stroke="url(#gradBenefit1)" stroke-width="2"/>
+                            <circle cx="44" cy="40" r="6" stroke="url(#gradBenefit1)" stroke-width="2"/>
+                            <path d="M32 26 L32 32 M26 34 L20 38 M38 34 L44 38" stroke="url(#gradBenefit1)" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="3" fill="url(#gradBenefit1)"/>
+                        </svg>
+                    </div>
+                    <h3>Proteger Activos de IA</h3>
+                    <p>Asegure sus valiosos modelos de IA, datos de entrenamiento y propiedad intelectual contra robo y manipulación.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M32 8 L12 18 L12 32 C12 44 20 54 32 56 C44 54 52 44 52 32 L52 18 Z" stroke="url(#gradBenefit2)" stroke-width="2" fill="none"/>
+                            <path d="M24 32 L30 38 L42 26" stroke="url(#gradBenefit2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Prevenir Robo de Modelos</h3>
+                    <p>Identifique y mitigue ataques de extracción de modelos que podrían comprometer sus sistemas de IA propietarios.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="12" y="16" width="40" height="32" rx="2" stroke="url(#gradBenefit3)" stroke-width="2"/>
+                            <circle cx="24" cy="28" r="4" stroke="url(#gradBenefit3)" stroke-width="1.5"/>
+                            <circle cx="40" cy="28" r="4" stroke="url(#gradBenefit3)" stroke-width="1.5"/>
+                            <path d="M20 40 Q32 36 44 40" stroke="url(#gradBenefit3)" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Asegurar Datos de Entrenamiento</h3>
+                    <p>Detecte intentos de envenenamiento de datos y asegure la integridad de sus conjuntos de datos de entrenamiento de IA.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="12" y="20" width="40" height="28" rx="2" stroke="url(#gradBenefit4)" stroke-width="2"/>
+                            <path d="M20 28 L28 36 L44 20" stroke="url(#gradBenefit4)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Sistemas de IA Conformes</h3>
+                    <p>Asegure que sus aplicaciones de IA cumplan con los requisitos regulatorios emergentes y directrices de IA ética.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="service-features">
+        <div class="container">
+            <div class="feature-row">
+                <div class="feature-content">
+                    <div class="feature-label">SEGURIDAD DE MODELOS</div>
+                    <h2>Evaluación de Vulnerabilidades de Modelos IA/ML</h2>
+                    <p>Pruebas completas de sus modelos de aprendizaje automático contra una amplia gama de ataques:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Pruebas de Ataques Adversariales</strong>
+                                <p>Probar robustez del modelo contra entradas diseñadas para causar clasificación errónea</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Prevención de Extracción de Modelos</strong>
+                                <p>Identificar vulnerabilidades que podrían permitir a atacantes robar su modelo</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Detección de Envenenamiento de Datos</strong>
+                                <p>Evaluar susceptibilidad a ataques de manipulación de datos de entrenamiento</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Pruebas de Inversión de Modelos</strong>
+                                <p>Evaluar riesgos de privacidad de consultas de modelos que revelan datos de entrenamiento</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="stats-visual">
+                        <div class="stat-card">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Pruebas de IA</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Tipos de Ataque</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Cobertura</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="feature-content">
+                    <div class="feature-label">SEGURIDAD LLM</div>
+                    <h2>Pruebas de Modelos de Lenguaje Grande</h2>
+                    <p>Pruebas especializadas de seguridad para aplicaciones LLM y sistemas impulsados por IA:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Pruebas de Inyección de Prompts</strong>
+                                <p>Probar vulnerabilidades de inyección de prompts en aplicaciones LLM</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Detección de Jailbreak</strong>
+                                <p>Identificar formas en que atacantes podrían evitar barreras de seguridad y filtros</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Evaluación de Filtración de Datos</strong>
+                                <p>Probar divulgación no intencional de información sensible en respuestas</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Manipulación de Contexto</strong>
+                                <p>Evaluar vulnerabilidades en sistemas RAG y manejo de contexto</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="threat-timeline">
+                        <div class="timeline-item detected">
+                            <div class="timeline-icon">🎯</div>
+                            <div class="timeline-content">
+                                <strong>Diseño de Ataques</strong>
+                                <p>Diseñar vectores de prueba</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item analyzed">
+                            <div class="timeline-icon">🤖</div>
+                            <div class="timeline-content">
+                                <strong>Pruebas de Modelos</strong>
+                                <p>Ejecutar ataques</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item contained">
+                            <div class="timeline-icon">📊</div>
+                            <div class="timeline-content">
+                                <strong>Análisis</strong>
+                                <p>Evaluar resultados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-content">
+                    <div class="feature-label">RED TEAMING DE IA</div>
+                    <h2>Evaluación Completa de Seguridad de IA</h2>
+                    <p>Pruebas de seguridad de alcance completo de su infraestructura y aplicaciones de IA:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Seguridad de Pipeline de ML</strong>
+                                <p>Probar seguridad de pipelines de ingesta de datos, entrenamiento y despliegue</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Pruebas de API e Integración</strong>
+                                <p>Evaluar seguridad de APIs de modelos de IA e integraciones de terceros</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Análisis de Sesgo y Equidad</strong>
+                                <p>Evaluar modelos por sesgo no intencional y salidas discriminatorias</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Validación de Cumplimiento</strong>
+                                <p>Verificar adherencia a regulaciones de IA y marcos de IA ética</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="response-process">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Evaluar</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Atacar</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Analizar</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Endurecer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cómo Funcionan las Pruebas de Seguridad de IA</h2>
+                <p>Un enfoque especializado para identificar vulnerabilidades en sistemas de IA y aprendizaje automático</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">1</div>
+                    <h3>Descubrimiento de Sistemas de IA</h3>
+                    <p>Trabajamos con su equipo para comprender su arquitectura de IA, modelos, fuentes de datos y casos de uso.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">2</div>
+                    <h3>Modelado de Amenazas</h3>
+                    <p>Identificar amenazas específicas de IA relevantes para sus modelos, incluyendo ataques adversariales y envenenamiento de datos.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h3>Pruebas de Seguridad</h3>
+                    <p>Ejecutar pruebas completas incluyendo robustez de modelos, seguridad LLM y evaluación de infraestructura.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">4</div>
+                    <h3>Remediación y Endurecimiento</h3>
+                    <p>Reciba recomendaciones detalladas y trabaje con nuestros expertos para implementar mejores prácticas de seguridad de IA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Asegure sus Sistemas de IA y Aprendizaje Automático</h2>
+                <p>Proteja sus inversiones en IA contra amenazas emergentes. Programe su evaluación de seguridad de IA hoy.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="btn-primary btn-large">Asegure su IA</a>
+                    <a href="../index.html#offensive" class="btn-secondary btn-large">Ver Todos los Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" style="height: 50px;">
+                    </div>
+                    <p>Ciberseguridad Defensiva y Ofensiva con IA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Defensivos</h4>
+                    <ul>
+                        <li><a href="mdr.html">Detección y Respuesta Gestionada</a></li>
+                        <li><a href="xdr.html">Detección y Respuesta Extendida</a></li>
+                        <li><a href="cti.html">Inteligencia de Amenazas Cibernéticas</a></li>
+                        <li><a href="threat-hunting.html">Búsqueda de Amenazas</a></li>
+                        <li><a href="automation.html">Automatización de Seguridad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Ofensivos</h4>
+                    <ul>
+                        <li><a href="penetration-testing.html">Pruebas de Penetración</a></li>
+                        <li><a href="red-teaming.html">Red Teaming</a></li>
+                        <li><a href="breach-simulation.html">Simulación de Brechas y Ataques</a></li>
+                        <li><a href="code-review.html">Revisión de Código Seguro</a></li>
+                        <li><a href="ai-security-testing.html">Pruebas de Seguridad de IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="../index.html#company">Acerca de Nosotros</a></li>
+                        <li><a href="../index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 360 Security Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

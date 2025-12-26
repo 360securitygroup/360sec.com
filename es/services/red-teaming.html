@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z0WWKP5NB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8Z0WWKP5NB');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones de Red Team - 360 Security Group</title>
+    <meta name="description" content="Operaciones realistas de red team que prueban defensas contra adversarios avanzados. Ataques de alcance completo, ingeniería social y ejercicios purple team por expertos de seguridad élite de 360 Sec.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.360sec.com/es/services/red-teaming.html">
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://www.360sec.com/services/red-teaming.html">
+    <link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/red-teaming.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/red-teaming.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.360sec.com/es/services/red-teaming.html">
+    <meta property="og:title" content="Operaciones de Red Team - 360 Security Group">
+    <meta property="og:description" content="360 Security Group ofrece servicios de ciberseguridad defensiva y ofensiva potenciados por IA - MDR, XDR, threat hunting, red teaming y automatización - para detectar, responder y prevenir ataques avanzados en todo el mundo.">
+    <meta property="og:image" content="https://www.360sec.com/og-image.jpg">
+    <meta property="og:site_name" content="360 Sec">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.360sec.com/es/services/red-teaming.html">
+    <meta name="twitter:title" content="Operaciones de Red Team - 360 Security Group">
+    <meta name="twitter:description" content="360 Security Group ofrece servicios de ciberseguridad defensiva y ofensiva potenciados por IA - MDR, XDR, threat hunting, red teaming y automatización - para detectar, responder y prevenir ataques avanzados en todo el mundo.">
+    <meta name="twitter:image" content="https://www.360sec.com/twitter-card.jpg">
+    <meta name="twitter:site" content="@360sec">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../services/service-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Red Teaming",
+      "name": "Red Team Operations",
+      "description": "360 Security Group ofrece servicios de ciberseguridad defensiva y ofensiva potenciados por IA - MDR, XDR, threat hunting, red teaming y automatización - para detectar, responder y prevenir ataques avanzados en todo el mundo.",
+      "provider": {
+        "@type": "Organization",
+        "name": "360 Security Group",
+        "url": "https://www.360sec.com"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Mundial"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.360sec.com/es/services/red-teaming.html"
+      },
+      "category": "Ciberseguridad",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.360sec.com/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios Ofensivos",
+          "item": "https://www.360sec.com/es/#offensive"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Red Teaming",
+          "item": "https://www.360sec.com/es/services/red-teaming.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-right">
+                    <a href="../blog/index.html" class="utility-link">Blog</a>
+                    <div class="language-selector">
+                        <button class="lang-btn" aria-label="Seleccionar idioma">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2 9h14M9 2c-2 2.5-2 5.5-2 7s0 4.5 2 7M9 2c2 2.5 2 5.5 2 7s0 4.5-2 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="arrow-down">▾</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="../../services/red-teaming.html" class="lang-option">
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </a>
+                            <a href="red-teaming.html" class="lang-option active">
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <a href="../index.html">
+                        <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" class="logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link-dropdown">Servicios Defensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="mdr.html">Detección y Respuesta Gestionada</a>
+                            <a href="xdr.html">Detección y Respuesta Extendida</a>
+                            <a href="cti.html">Inteligencia de Amenazas Cibernéticas</a>
+                            <a href="threat-hunting.html">Búsqueda de Amenazas</a>
+                            <a href="automation.html">Automatización de Seguridad</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../index.html#offensive" class="nav-link-dropdown">Servicios Ofensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="penetration-testing.html">Pruebas de Penetración</a>
+                            <a href="red-teaming.html">Red Teaming</a>
+                            <a href="breach-simulation.html">Simulación de Brechas y Ataques</a>
+                            <a href="code-review.html">Revisión de Código Seguro</a>
+                            <a href="ai-security-testing.html">Pruebas de Seguridad de IA</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="#resources" class="nav-link-dropdown">Recursos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../blog/index.html">Blog</a>
+                        </div>
+                    </div>
+                    <a href="../index.html#company">Compañía</a>
+                    <a href="../index.html#contact" class="btn-primary">Contáctenos</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Alternar menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="service-breadcrumb">
+                    <a href="../index.html">Inicio</a> / <a href="../index.html#offensive">Servicios Ofensivos</a> / <span>Red Teaming</span>
+                </div>
+                <h1 class="service-title">
+                    Operaciones de <span class="gradient-text">Red Team</span>
+                </h1>
+                <p class="service-subtitle">
+                    Simulaciones realistas de adversarios para probar sus defensas. Nuestros operadores élite de red team simulan amenazas persistentes avanzadas para evaluar la efectividad de su programa de seguridad contra atacantes sofisticados.
+                </p>
+                <div class="service-hero-cta">
+                    <a href="../index.html#contact" class="btn-primary btn-large">Solicitar Compromiso</a>
+                    <a href="#features" class="btn-secondary btn-large">Más Información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="service-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Por Qué Elegir Nuestros Servicios de Red Team</h2>
+                <p>Simulación avanzada de adversarios que revela brechas en su postura de seguridad</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="32" cy="32" r="20" stroke="url(#gradBenefit1)" stroke-width="2" fill="none"/>
+                            <path d="M32 16 L32 32 L44 32" stroke="url(#gradBenefit1)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="3" fill="url(#gradBenefit1)"/>
+                        </svg>
+                    </div>
+                    <h3>Probar Capacidades de Detección</h3>
+                    <p>Evalúe qué tan bien su equipo de seguridad y herramientas detectan, responden y contienen campañas de ataque sofisticadas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M32 8 L12 18 L12 32 C12 44 20 54 32 56 C44 54 52 44 52 32 L52 18 Z" stroke="url(#gradBenefit2)" stroke-width="2" fill="none"/>
+                            <circle cx="32" cy="32" r="6" stroke="url(#gradBenefit2)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Validar Controles de Seguridad</h3>
+                    <p>Verifique que sus inversiones en seguridad están funcionando según lo previsto contra escenarios de ataque del mundo real.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M16 32 L28 44 L48 20" stroke="url(#gradBenefit3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="32" cy="32" r="24" stroke="url(#gradBenefit3)" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Mejorar la Respuesta</h3>
+                    <p>Entrene a su equipo de seguridad mediante simulaciones realistas de ataques que mejoran las capacidades de respuesta a incidentes.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="12" y="16" width="40" height="32" rx="2" stroke="url(#gradBenefit4)" stroke-width="2"/>
+                            <path d="M20 24 L44 24 M20 32 L44 32 M20 40 L36 40" stroke="url(#gradBenefit4)" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Escenarios Realistas</h3>
+                    <p>Experimente ataques modelados según actores de amenazas reales que atacan organizaciones en su industria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="service-features">
+        <div class="container">
+            <div class="feature-row">
+                <div class="feature-content">
+                    <div class="feature-label">COMPROMISOS DE ALCANCE COMPLETO</div>
+                    <h2>Simulación Integral de Ataque</h2>
+                    <p>Nuestras operaciones de red team prueban todo su programa de seguridad en todos los vectores de ataque:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Penetración de Red</strong>
+                                <p>Compromiso de red externa e interna y movimiento lateral</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Ingeniería Social</strong>
+                                <p>Campañas de phishing, vishing y pretexting dirigidas a empleados</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Pruebas de Seguridad Física</strong>
+                                <p>Acceso no autorizado a instalaciones e intentos de penetración física</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Ejercicios de Purple Team</strong>
+                                <p>Compromisos colaborativos con su blue team para mejorar las defensas</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="stats-visual">
+                        <div class="stat-card">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Tasa de Éxito</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">Días Promedio</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">No Detectado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="feature-content">
+                    <div class="feature-label">TÉCNICAS AVANZADAS</div>
+                    <h2>Escenarios de Ataque Personalizados</h2>
+                    <p>Adaptamos nuestras operaciones para simular amenazas específicas de su organización e industria:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Escenarios de Brecha Asumida</strong>
+                                <p>Comenzar desde el acceso inicial para probar capacidades de detección y respuesta</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Persistencia Sigilosa</strong>
+                                <p>Técnicas avanzadas para mantener acceso a largo plazo sin ser detectado</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Exfiltración de Datos</strong>
+                                <p>Pruebe controles DLP con robo simulado de datos sensibles</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Operaciones Basadas en Objetivos</strong>
+                                <p>Ataques orientados a objetivos dirigidos a activos o datos específicos</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="threat-timeline">
+                        <div class="timeline-item detected">
+                            <div class="timeline-icon">🎯</div>
+                            <div class="timeline-content">
+                                <strong>Acceso Inicial</strong>
+                                <p>Compromiso logrado</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item analyzed">
+                            <div class="timeline-icon">🔄</div>
+                            <div class="timeline-content">
+                                <strong>Movimiento Lateral</strong>
+                                <p>Recorrido de red</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item contained">
+                            <div class="timeline-icon">🏆</div>
+                            <div class="timeline-content">
+                                <strong>Objetivo Completado</strong>
+                                <p>Meta alcanzada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-content">
+                    <div class="feature-label">REPORTES EJECUTIVOS</div>
+                    <h2>Conocimientos Estratégicos y Colaboración</h2>
+                    <p>Informes completos con recomendaciones accionables para mejorar su postura de seguridad:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Informes Ejecutivos</strong>
+                                <p>Reportes a nivel directivo sobre riesgo organizacional y brechas de seguridad</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Informe Técnico</strong>
+                                <p>Documentación detallada de la cadena de ataque con TTPs utilizados</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Análisis de Brechas de Detección</strong>
+                                <p>Identifique qué perdieron sus herramientas de seguridad y por qué</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Recomendaciones de Purple Team</strong>
+                                <p>Mejoras específicas para reglas de detección y playbooks de respuesta</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="response-process">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Reconocimiento</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Brecha</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Escalar</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Extraer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cómo Funcionan Nuestras Operaciones de Red Team</h2>
+                <p>Un enfoque sistemático para probar la efectividad de su programa de seguridad</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">1</div>
+                    <h3>Planificación y Objetivos</h3>
+                    <p>Definir alcance del compromiso, objetivos, reglas de enfrentamiento y criterios de éxito con las partes interesadas clave.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">2</div>
+                    <h3>Operaciones de Red Team</h3>
+                    <p>Ejecutar compromiso de varias semanas utilizando tácticas, técnicas y procedimientos avanzados para lograr objetivos.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h3>Análisis de Detección</h3>
+                    <p>Trabajar con su blue team para analizar qué se detectó, qué se perdió e identificar áreas de mejora.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">4</div>
+                    <h3>Recomendaciones e Informe</h3>
+                    <p>Entregar informes completos con recomendaciones estratégicas y realizar sesiones de informe ejecutivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pruebe Sus Defensas con Operaciones Élite de Red Team</h2>
+                <p>Descubra qué tan bien resiste su programa de seguridad frente a adversarios avanzados. Programe su compromiso hoy.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="btn-primary btn-large">Solicitar Compromiso</a>
+                    <a href="../index.html#offensive" class="btn-secondary btn-large">Ver Todos los Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" style="height: 50px;">
+                    </div>
+                    <p>Ciberseguridad Defensiva y Ofensiva con IA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Defensivos</h4>
+                    <ul>
+                        <li><a href="mdr.html">Detección y Respuesta Gestionada</a></li>
+                        <li><a href="xdr.html">Detección y Respuesta Extendida</a></li>
+                        <li><a href="cti.html">Inteligencia de Amenazas Cibernéticas</a></li>
+                        <li><a href="threat-hunting.html">Búsqueda de Amenazas</a></li>
+                        <li><a href="automation.html">Automatización de Seguridad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Ofensivos</h4>
+                    <ul>
+                        <li><a href="penetration-testing.html">Pruebas de Penetración</a></li>
+                        <li><a href="red-teaming.html">Red Teaming</a></li>
+                        <li><a href="breach-simulation.html">Simulación de Brechas y Ataques</a></li>
+                        <li><a href="code-review.html">Revisión de Código Seguro</a></li>
+                        <li><a href="ai-security-testing.html">Pruebas de Seguridad de IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="../index.html#company">Acerca de Nosotros</a></li>
+                        <li><a href="../index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 360 Security Group. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

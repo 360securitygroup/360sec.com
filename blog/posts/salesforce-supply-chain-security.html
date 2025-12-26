@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z0WWKP5NB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8Z0WWKP5NB');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside the Salesloft Drift Breach: OAuth Token Theft & Salesforce Supply Chain Attack Analysis - 360 Security Group</title>
+    <meta name="description" content="Comprehensive analysis of the August 2025 Salesloft Drift breach where threat actor UNC6395 compromised GitHub, stole AWS credentials, and exfiltrated OAuth tokens to access hundreds of Salesforce instances. Includes IOCs, attack timeline, and defensive controls.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+    <link rel="alternate" hreflang="es" href="https://www.360sec.com/es/blog/posts/salesforce-supply-chain-security.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+    <meta property="og:title" content="Salesloft Drift Breach Analysis: GitHub → AWS → OAuth Token Theft">
+    <meta property="og:description" content="Deep dive into the August 2025 Salesloft Drift supply chain attack where UNC6395 stole OAuth tokens and exfiltrated data from hundreds of Salesforce orgs. Includes attacker IPs, TTPs, and defensive controls.">
+    <meta property="og:image" content="https://www.360sec.com/og-image.jpg">
+    <meta property="og:site_name" content="360 Security Group">
+    <meta property="article:published_time" content="2025-09-15T09:00:00Z">
+    <meta property="article:author" content="Dr. Rebecca Martinez">
+    <meta property="article:section" content="Supply Chain Security">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html">
+    <meta name="twitter:title" content="Salesloft Drift Breach: UNC6395 Supply Chain Attack Analysis">
+    <meta name="twitter:description" content="Technical breakdown of the Aug 2025 Drift breach: GitHub compromise → AWS pivot → OAuth theft → Salesforce data exfiltration from hundreds of orgs. IOCs included.">
+    <meta name="twitter:image" content="https://www.360sec.com/twitter-card.jpg">
+    <meta name="twitter:site" content="@360sec">
+
+    <!-- Favicon and Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.360sec.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.360sec.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.360sec.com/favicon-16x16.png">
+    <link rel="manifest" href="https://www.360sec.com/site.webmanifest">
+    <link rel="mask-icon" href="https://www.360sec.com/safari-pinned-tab.svg" color="#2F2A99">
+    <link rel="shortcut icon" href="https://www.360sec.com/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2F2A99">
+    <meta name="msapplication-config" content="https://www.360sec.com/browserconfig.xml">
+    <meta name="theme-color" content="#2F2A99">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Inside the Salesloft Drift Breach: OAuth Token Theft & Salesforce Supply Chain Attack Analysis",
+      "description": "Comprehensive analysis of the August 2025 Salesloft Drift breach where threat actor UNC6395 (GRUB1) compromised GitHub, stole AWS credentials, and exfiltrated OAuth tokens to access hundreds of Salesforce instances. Includes complete timeline, attack path from GitHub to AWS to Salesforce, IOCs (44.215.108.109, 208.68.36.90), victims (Cloudflare, Palo Alto Networks, Zscaler), and defensive controls.",
+      "image": "https://www.360sec.com/og-image.jpg",
+      "datePublished": "2025-09-15T09:00:00Z",
+      "dateModified": "2025-09-15T09:00:00Z",
+      "author": {
+        "@type": "Person",
+        "name": "Dr. Rebecca Martinez",
+        "jobTitle": "Principal Security Researcher"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "360 Security Group",
+        "url": "https://www.360sec.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.360sec.com/logo/360-security-group_light.svg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html"
+      },
+      "keywords": "Salesloft Drift breach, UNC6395, GRUB1, Salesforce supply chain attack, OAuth token theft, GitHub security, AWS compromise, SaaS security, Cloudflare breach, incident response, IOCs",
+      "articleSection": "Supply Chain Security",
+      "wordCount": 2400
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.360sec.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.360sec.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Salesloft Drift Breach",
+          "item": "https://www.360sec.com/blog/posts/salesforce-supply-chain-security.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-right">
+                    <a href="../index.html" class="utility-link">Blog</a>
+                    <div class="language-selector">
+                        <button class="lang-btn" aria-label="Select language">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2 9h14M9 2c-2 2.5-2 5.5-2 7s0 4.5 2 7M9 2c2 2.5 2 5.5 2 7s0 4.5-2 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="arrow-down">▾</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="salesforce-supply-chain-security.html" class="lang-option active">
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </a>
+                            <a href="../../es/blog/posts/salesforce-supply-chain-security.html" class="lang-option">
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <a href="../../index.html">
+                        <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" class="logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-dropdown">
+                        <a href="../../index.html#services" class="nav-link-dropdown">Defensive Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../../services/mdr.html">Managed Detection & Response</a>
+                            <a href="../../services/xdr.html">Extended Detection & Response</a>
+                            <a href="../../services/cti.html">Cyber Threat Intelligence</a>
+                            <a href="../../services/threat-hunting.html">Threat Hunting</a>
+                            <a href="../../services/automation.html">Security Automation</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../../index.html#offensive" class="nav-link-dropdown">Offensive Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../../services/penetration-testing.html">Penetration Testing</a>
+                            <a href="../../services/red-teaming.html">Red Team</a>
+                            <a href="../../services/breach-simulation.html">Breach & Attack Simulation</a>
+                            <a href="../../services/code-review.html">Secure Code Review</a>
+                            <a href="../../services/ai-security-testing.html">AI Security Testing</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../index.html" class="nav-link-dropdown">Resources ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../index.html">Blog</a>
+                        </div>
+                    </div>
+                    <a href="../../index.html#company">Company</a>
+                    <a href="../../index.html#contact" class="btn-primary">Contact Us</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Post Header -->
+    <section class="post-header">
+        <div class="container">
+            <div class="post-header-content">
+                <div class="blog-breadcrumb">
+                    <a href="../../index.html">Home</a> / <a href="../index.html">Blog</a> / Salesloft Drift Breach
+                </div>
+                <div class="post-meta-header">
+                    <span class="blog-category">Supply Chain</span>
+                    <span class="blog-date">September 15, 2025</span>
+                    <span class="blog-reading-time">12 min read</span>
+                </div>
+                <h1 class="post-title">Inside the Salesloft Drift Breach: OAuth Token Theft & Salesforce Supply Chain Attack</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <section class="post-content-wrapper">
+        <div class="container">
+            <!-- Author Box -->
+            <div class="post-author-box">
+                <div class="post-author-avatar">DR</div>
+                <div class="post-author-details">
+                    <h3>Dr. Rebecca Martinez</h3>
+                    <p>Principal Security Researcher at 360 Security Group. Leads SaaS and supply chain assurance programs for global enterprises.</p>
+                </div>
+            </div>
+
+            <!-- Article Content -->
+            <article class="post-content">
+                <p>
+                    In August 2025, a sophisticated supply chain attack compromised <strong>Salesloft's Drift</strong> AI chatbot integration, enabling threat actors tracked as <strong>UNC6395 (GRUB1)</strong> to steal OAuth credentials and exfiltrate data from hundreds of Salesforce instances worldwide. The breach originated from a months-long compromise of Salesloft's GitHub environment between March and June 2025, which allowed attackers to pivot into AWS infrastructure and extract valid OAuth tokens used by the Drift-Salesforce integration. Between August 8-18, 2025, attackers systematically accessed customer contact information, support case data, and sensitive credentials from major enterprises including Cloudflare, Palo Alto Networks, and Zscaler. This article deconstructs the attack path, analyzes the defensive failures, and provides actionable controls to secure your SaaS supply chain.
+                </p>
+
+                <h2>Incident Timeline at a Glance</h2>
+                <ul>
+                    <li><strong>March–June 2025:</strong> Threat actor UNC6395 (GRUB1) compromises Salesloft's GitHub account, downloads repository content, and establishes malicious workflows to access AWS infrastructure.</li>
+                    <li><strong>August 8, 2025:</strong> Data exfiltration campaign begins using stolen OAuth tokens from the Drift-Salesforce integration.</li>
+                    <li><strong>August 9:</strong> At Cloudflare, attackers conduct reconnaissance using Trufflehog secrets scanner from IP 44.215.108.109.</li>
+                    <li><strong>August 12–17:</strong> Attackers systematically access Salesforce instances at Cloudflare, Palo Alto Networks, Zscaler, and hundreds of other organizations, exfiltrating customer contact data and support cases.</li>
+                    <li><strong>August 17:</strong> Attackers switch to IP 208.68.36.90 and execute Salesforce Bulk API 2.0 job, extracting Cloudflare's case data in approximately three minutes.</li>
+                    <li><strong>August 18:</strong> Active data theft period ends as victims detect anomalous API activity.</li>
+                    <li><strong>August 20:</strong> Salesloft publicly discloses security issue in Drift application.</li>
+                    <li><strong>August 23:</strong> Salesforce and Salesloft notify affected customers including Cloudflare.</li>
+                    <li><strong>August 26:</strong> Google Threat Intelligence Group publicly warns of OAuth token theft and Salesforce data exfiltration.</li>
+                    <li><strong>August 27:</strong> Salesloft engages Mandiant for comprehensive forensic investigation.</li>
+                    <li><strong>August 28:</strong> Salesforce blocks all Drift integrations globally; Google updates threat advisory.</li>
+                    <li><strong>September 1:</strong> Investigation confirms incident contained; Drift remains disabled while Salesloft platform integrations restored.</li>
+                    <li><strong>September 2:</strong> Cloudflare formally notifies affected customers; threat actors launch extortion campaign demanding payment to prevent data release.</li>
+                </ul>
+
+                <h2>Attack Path Analysis</h2>
+                <p>
+                    The breach followed a sophisticated supply chain attack pattern: <strong>GitHub → AWS → OAuth Tokens → Salesforce Data</strong>. Here's how each stage unfolded:
+                </p>
+
+                <h3>Stage 1: GitHub Compromise (March–June 2025)</h3>
+                <p>
+                    Attackers gained persistent access to Salesloft's GitHub account using unknown initial access methods. Once inside, they downloaded content from multiple repositories and established malicious workflows. Critically, these repositories contained AWS access keys used in Salesloft's deployment processes—representing what SpecterOps calls "identities in transit" that bypass standard authentication controls.
+                </p>
+
+                <h3>Stage 2: AWS Pivot</h3>
+                <p>
+                    Using stolen AWS credentials from GitHub, attackers assumed AWS IAM roles with permissions to access Salesloft's infrastructure. This allowed them to locate and exfiltrate OAuth tokens that Drift used to integrate with customer Salesforce instances. These tokens were already-authenticated sessions that granted the same trusted access Drift itself enjoyed.
+                </p>
+
+                <h3>Stage 3: Salesforce Reconnaissance & Data Theft</h3>
+                <p>
+                    Armed with legitimate OAuth tokens, attackers systematically targeted Salesforce instances. Cloudflare's detailed logs reveal the attack methodology:
+                </p>
+                <ul>
+                    <li><strong>August 9:</strong> Credential validation using Trufflehog secrets scanner to test stolen tokens</li>
+                    <li><strong>August 13:</strong> Object enumeration via <code>/sobjects/Case/describe/</code> endpoint to map Salesforce schema</li>
+                    <li><strong>August 14:</strong> Sizing analysis (counting Accounts, Contacts, Users) and workflow analysis through CaseTeamMemberHistory queries</li>
+                    <li><strong>August 16:</strong> Dry-run query: <code>SELECT COUNT() FROM Case</code></li>
+                    <li><strong>August 17:</strong> Infrastructure switch to IP 208.68.36.90 and execution of Salesforce Bulk API 2.0 job, extracting complete case dataset in ~3 minutes</li>
+                </ul>
+
+                <h3>Stage 4: Credential Harvesting & Lateral Movement</h3>
+                <p>
+                    Beyond Salesforce data, attackers searched exfiltrated records for embedded credentials including AWS keys, VPN credentials, Snowflake credentials, and API tokens. At Cloudflare alone, 104 exposed API tokens were discovered pasted in support case text fields. Attackers also stole tokens for Slack, Google Workspace, Amazon S3, Microsoft Azure, and OpenAI from other victims.
+                </p>
+
+                <p>
+                    <strong>The Clean Source Principle Violation:</strong> This attack succeeded because security dependencies (GitHub repositories) were not as trustworthy as the objects they secured (AWS infrastructure, OAuth tokens). When the dependency was compromised, every downstream system inherited that compromise—a cascading failure through the entire trust chain.
+                </p>
+
+                <h2>Business Impact</h2>
+                <p>
+                    While Salesforce's core platform remained uncompromised, hundreds of customer organizations experienced significant security and operational consequences:
+                </p>
+                <ul>
+                    <li><strong>Data Exposure at Scale:</strong> Customer contact information, support case histories, and technical details from hundreds of Salesforce instances were exfiltrated. Prominent victims include Cloudflare, Palo Alto Networks, Zscaler, Adidas, Allianz Life, and Qantas. Many cases contained sensitive information customers pasted into support tickets including API keys, configuration details, and system logs.</li>
+                    <li><strong>Credential Compromise:</strong> Attackers harvested embedded credentials from exfiltrated data, discovering AWS keys, VPN credentials, Snowflake passwords, and service account tokens. Cloudflare identified and rotated 104 exposed API tokens from their case data alone. Stolen authentication tokens extended to Slack, Google Workspace, Amazon S3, Microsoft Azure, and OpenAI across the victim base.</li>
+                    <li><strong>Operational Disruption:</strong> On August 28, Salesforce globally disabled all Drift integrations, forcing hundreds of organizations to immediately halt chatbot operations. Drift remained offline through September while Salesloft's main platform integrations were gradually restored after forensic validation.</li>
+                    <li><strong>Extortion Campaign:</strong> Following the breach, threat actors launched a data leak site demanding payment from victims to prevent public release of stolen information. Major organizations including Salesforce publicly stated they would "not engage, negotiate with, or pay any extortion demand."</li>
+                    <li><strong>Incident Response Costs:</strong> Affected enterprises engaged forensic investigators, conducted emergency credential rotation programs, reviewed years of historical case data for embedded secrets, and faced regulatory notification requirements across multiple jurisdictions. Many organizations implemented weekly credential rotation schedules for all third-party SaaS integrations as an ongoing operational burden.</li>
+                </ul>
+
+                <h2>Six Critical Lessons from the Salesloft-Drift Breach</h2>
+
+                <h3>1. Audit and Rotate OAuth Tokens for All Third-Party Integrations</h3>
+                <p>
+                    This attack succeeded because legitimate OAuth tokens were stolen and replayed. Inventory all connected apps in your Salesforce org, revoke tokens for unused or dormant integrations, and implement automated rotation schedules. Cloudflare now rotates credentials for third-party services weekly. Monitor OAuth token usage patterns and alert on API calls from unfamiliar IP addresses or geolocations.
+                </p>
+
+                <h3>2. Apply Least-Privilege to SaaS Integration Scopes</h3>
+                <p>
+                    The Drift integration had broad access to Salesforce objects. Grant integrations only the minimum required scopes—if a chatbot needs to create cases, don't grant it access to Opportunities, Accounts, or custom objects. Regularly review and tighten permissions as vendors add capabilities. Enable Salesforce Shield's Event Monitoring to track API-level data access by connected apps.
+                </p>
+
+                <h3>3. Never Paste Secrets into Support Cases or Chat Tools</h3>
+                <p>
+                    Cloudflare discovered 104 API tokens embedded in support case text fields after exfiltration. Train users to use secure methods for sharing credentials with vendors: temporary credential vaults, time-limited access grants, or sanitized log excerpts. Implement DLP policies that scan outbound communications for API keys, passwords, and cloud credentials before transmission.
+                </p>
+
+                <h3>4. Demand Vendor Supply Chain Transparency</h3>
+                <p>
+                    This breach originated from compromised GitHub repositories containing AWS credentials. During vendor risk assessments, require evidence of: secure credential management (secrets vaulting, not hardcoded in repos), segregated build environments with code signing, multi-factor authentication for all DevOps accounts, and regular third-party security audits of their CI/CD pipeline. Vendors should provide supply chain attestations (SLSA framework compliance).
+                </p>
+
+                <h3>5. Implement Real-Time Salesforce API Monitoring</h3>
+                <p>
+                    Attackers executed reconnaissance queries and bulk API extractions over multiple days before detection. Deploy SIEM integrations that ingest Salesforce Event Monitoring logs in near-real-time. Create alerts for: unusual bulk API usage, schema enumeration queries (<code>/sobjects/*/describe/</code> endpoints), count queries across multiple objects, and API calls from IP addresses not associated with known integration infrastructure.
+                </p>
+
+                <h3>6. Prepare a SaaS Supply Chain Incident Response Plan</h3>
+                <p>
+                    This incident required coordinated response across Salesforce, Salesloft, hundreds of customers, and forensic partners. Develop playbooks specifically for supply chain compromise scenarios including: immediate connected app revocation procedures, vendor communication escalation paths (security contacts, legal, executive), forensic data preservation steps (Event Monitoring log exports, field history tracking), and breach notification requirements. Test these playbooks quarterly with cross-functional teams.
+                </p>
+
+                <h2>Immediate Response Checklist</h2>
+                <ul class="checklist">
+                    <li>Verify whether your organization used the Salesloft Drift integration during March–September 2025. If yes, assume compromise and proceed with full incident response.</li>
+                    <li>Export Salesforce Event Monitoring logs for August 8–18, 2025. Search for API activity from these known attacker IPs: <code>44.215.108.109</code>, <code>208.68.36.90</code>. Look for bulk API queries, <code>/sobjects/*/describe/</code> calls, and unusual case object access.</li>
+                    <li>Revoke all OAuth tokens for Drift and any other Salesloft integrations. Regenerate credentials for downstream systems that received data from Salesforce via Salesloft workflows.</li>
+                    <li>Conduct a full audit of Salesforce case history, support tickets, and custom objects for embedded credentials (search for keywords: "api_key", "password", "secret", "token", "-----BEGIN"). Rotate all discovered credentials immediately.</li>
+                    <li>Review all connected apps in Setup → App Manager. For each integration with "Modify All Data" or similar broad scopes, audit recent API usage and reduce permissions to least-privilege.</li>
+                    <li>Contact Salesloft and Salesforce support to request confirmation of your organization's exposure status and any IOCs specific to your tenant.</li>
+                    <li>Update vendor risk questionnaires to require attestation of secure credential storage practices and CI/CD pipeline security controls.</li>
+                </ul>
+
+                <h2>How 360 Security Group Helps Post-Incident</h2>
+                <p>
+                    360 Security Group partners with organizations recovering from the Salesloft-Drift breach and hardening their SaaS supply chain posture:
+                </p>
+                <ul>
+                    <li><a href="../../services/cti.html">Supply Chain Threat Intelligence</a> tracking UNC6395/GRUB1 infrastructure, IOCs from the Drift breach (including known attacker IPs and OAuth token patterns), and emerging threats to Salesforce AppExchange integrations.</li>
+                    <li><a href="../../services/threat-hunting.html">Targeted Threat Hunting</a> across Salesforce Event Monitoring logs, searching for reconnaissance patterns (schema enumeration, bulk API usage), credential harvesting indicators, and persistence through secondary OAuth tokens.</li>
+                    <li><a href="../../services/automation.html">Security Automation Services</a> that orchestrate OAuth token rotation workflows, connected app permission reviews, and vendor security attestation collection with automated compliance tracking.</li>
+                    <li><a href="../../services/penetration-testing.html">SaaS Breach Simulations</a> emulating supply chain compromise scenarios—including GitHub credential theft, OAuth token replay attacks, and Salesforce bulk data exfiltration—to validate detection capabilities and response procedures.</li>
+                    <li><a href="../../services/code-review.html">Vendor Security Assessments</a> evaluating third-party ISV code security, CI/CD pipeline controls, credential management practices, and supply chain risk across your SaaS ecosystem.</li>
+                </ul>
+
+                <p>
+                    The Salesloft-Drift supply chain attack demonstrates that SaaS security boundaries extend far beyond platform perimeters into vendor DevOps practices, integration trust chains, and embedded credential hygiene. Organizations that treat GitHub repositories, OAuth tokens, and support case data as critical attack surfaces will detect threats faster, contain breaches earlier, and emerge more resilient from the next supply chain compromise.
+                </p>
+
+                <!-- Tags -->
+                <div class="post-tags">
+                    <h4>Tags</h4>
+                    <div class="tag-list">
+                        <a href="#" class="tag">Salesforce</a>
+                        <a href="#" class="tag">Salesloft</a>
+                        <a href="#" class="tag">Drift</a>
+                        <a href="#" class="tag">Supply Chain Attack</a>
+                        <a href="#" class="tag">UNC6395</a>
+                        <a href="#" class="tag">OAuth Tokens</a>
+                        <a href="#" class="tag">GitHub Security</a>
+                        <a href="#" class="tag">AWS Compromise</a>
+                        <a href="#" class="tag">SaaS Security</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" class="footer-logo">
+                    <p>Leading cybersecurity solutions for the modern enterprise.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Defensive Services</h4>
+                    <ul>
+                        <li><a href="../../services/mdr.html">MDR</a></li>
+                        <li><a href="../../services/xdr.html">XDR</a></li>
+                        <li><a href="../../services/cti.html">Threat Intelligence</a></li>
+                        <li><a href="../../services/threat-hunting.html">Threat Hunting</a></li>
+                        <li><a href="../../services/automation.html">Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Offensive Services</h4>
+                    <ul>
+                        <li><a href="../../services/penetration-testing.html">Penetration Testing</a></li>
+                        <li><a href="../../services/red-teaming.html">Red Team</a></li>
+                        <li><a href="../../services/breach-simulation.html">Breach Simulation</a></li>
+                        <li><a href="../../services/code-review.html">Code Review</a></li>
+                        <li><a href="../../services/ai-security-testing.html">AI Security Testing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../../index.html#company">Why Choose Us</a></li>
+                        <li><a href="../../index.html#experience">Our Experience</a></li>
+                        <li><a href="../index.html">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="../../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 360 Security Group. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

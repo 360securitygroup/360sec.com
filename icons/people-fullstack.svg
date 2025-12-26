@@ -1,0 +1,30 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradFullstack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Layered stack representing full-stack -->
+  <!-- Infrastructure layer -->
+  <rect x="12" y="44" width="40" height="10" rx="2" fill="url(#gradFullstack)" opacity="0.4"/>
+
+  <!-- Software layer -->
+  <rect x="16" y="32" width="32" height="10" rx="2" fill="url(#gradFullstack)" opacity="0.6"/>
+
+  <!-- Engineering layer -->
+  <rect x="20" y="20" width="24" height="10" rx="2" fill="url(#gradFullstack)" opacity="0.8"/>
+
+  <!-- Tools/gear icon on top -->
+  <circle cx="32" cy="12" r="6" fill="url(#gradFullstack)"/>
+  <path d="M32 8 L33 10 L35 10 L33.5 11.5 L34 14 L32 12.5 L30 14 L30.5 11.5 L29 10 L31 10 Z" fill="white"/>
+
+  <!-- Connection lines showing integration -->
+  <line x1="32" y1="18" x2="32" y2="20" stroke="url(#gradFullstack)" stroke-width="2" opacity="0.5"/>
+  <line x1="32" y1="30" x2="32" y2="32" stroke="url(#gradFullstack)" stroke-width="2" opacity="0.5"/>
+  <line x1="32" y1="42" x2="32" y2="44" stroke="url(#gradFullstack)" stroke-width="2" opacity="0.5"/>
+
+  <!-- Code brackets -->
+  <path d="M10 28 L8 30 L10 32" stroke="url(#gradFullstack)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M54 28 L56 30 L54 32" stroke="url(#gradFullstack)" stroke-width="2" stroke-linecap="round"/>
+</svg>

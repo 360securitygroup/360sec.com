@@ -1,0 +1,19 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradProjects" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Project folders/tasks -->
+  <rect x="8" y="14" width="14" height="12" rx="2" stroke="url(#gradProjects)" stroke-width="1.5" fill="url(#gradProjects)" opacity="0.3"/>
+  <rect x="26" y="14" width="14" height="12" rx="2" stroke="url(#gradProjects)" stroke-width="1.5" fill="url(#gradProjects)" opacity="0.3"/>
+  <rect x="8" y="28" width="14" height="12" rx="2" stroke="url(#gradProjects)" stroke-width="1.5" fill="url(#gradProjects)" opacity="0.3"/>
+  <rect x="26" y="28" width="14" height="12" rx="2" stroke="url(#gradProjects)" stroke-width="1.5" fill="url(#gradProjects)" opacity="0.3"/>
+
+  <!-- Checkmarks on completed projects -->
+  <path d="M11 19 L13 21 L17 17" stroke="url(#gradProjects)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 19 L31 21 L35 17" stroke="url(#gradProjects)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M11 33 L13 35 L17 31" stroke="url(#gradProjects)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M29 33 L31 35 L35 31" stroke="url(#gradProjects)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

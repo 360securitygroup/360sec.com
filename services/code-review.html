@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z0WWKP5NB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8Z0WWKP5NB');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Code Review - 360 Security Group</title>
+    <meta name="description" content="Expert manual code review and automated SAST/DAST scanning. Build security into your SDLC. Support for 30+ languages, CI/CD integration, and developer training.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.360sec.com/services/code-review.html">
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://www.360sec.com/services/code-review.html">
+    <link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/code-review.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/code-review.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.360sec.com/services/code-review.html">
+    <meta property="og:title" content="Secure Code Review - 360 Security Group">
+    <meta property="og:description" content="Expert manual code review and automated SAST/DAST scanning. Build security into your SDLC. Support for 30+ languages, CI/CD integration, and developer training.">
+    <meta property="og:image" content="https://www.360sec.com/og-image.jpg">
+    <meta property="og:site_name" content="360 Sec">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.360sec.com/services/code-review.html">
+    <meta name="twitter:title" content="Secure Code Review - 360 Security Group">
+    <meta name="twitter:description" content="Expert manual code review and automated SAST/DAST scanning. Build security into your SDLC. Support for 30+ languages, CI/CD integration, and developer training.">
+    <meta name="twitter:image" content="https://www.360sec.com/twitter-card.jpg">
+    <meta name="twitter:site" content="@360sec">
+
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="service-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Code Review",
+      "name": "Secure Code Review",
+      "description": "Expert manual code review and automated SAST/DAST scanning. Build security into your SDLC. Support for 30+ languages, CI/CD integration, and developer training.",
+      "provider": {
+        "@type": "Organization",
+        "name": "360 Security Group",
+        "url": "https://www.360sec.com"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Worldwide"
+      },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://www.360sec.com/services/code-review.html"
+      },
+      "category": "Cybersecurity",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.360sec.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Offensive Services",
+          "item": "https://www.360sec.com/#offensive"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Code Review",
+          "item": "https://www.360sec.com/services/code-review.html"
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-right">
+                    <a href="../blog/index.html" class="utility-link">Blog</a>
+                    <div class="language-selector">
+                        <button class="lang-btn" aria-label="Select language">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2 9h14M9 2c-2 2.5-2 5.5-2 7s0 4.5 2 7M9 2c2 2.5 2 5.5 2 7s0 4.5-2 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="arrow-down">▾</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="../index.html" class="lang-option active">
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </a>
+                            <a href="../es/services/code-review.html" class="lang-option">
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <a href="../index.html">
+                        <img src="../logo/360-security-group_light.svg" alt="360 Security Group" class="logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link-dropdown">Defensive Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="mdr.html">Managed Detection & Response</a>
+                            <a href="xdr.html">Extended Detection & Response</a>
+                            <a href="cti.html">Cyber Threat Intelligence</a>
+                            <a href="threat-hunting.html">Threat Hunting</a>
+                            <a href="automation.html">Security Automation</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../index.html#offensive" class="nav-link-dropdown">Offensive Services ▾</a>
+                        <div class="dropdown-content">
+                            <a href="penetration-testing.html">Penetration Testing</a>
+                            <a href="red-teaming.html">Red Teaming</a>
+                            <a href="breach-simulation.html">Breach & Attack Simulation</a>
+                            <a href="code-review.html">Secure Code Review</a>
+                            <a href="ai-security-testing.html">AI Security Testing</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="#resources" class="nav-link-dropdown">Resources ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../blog/index.html">Blog</a>
+                        </div>
+                    </div>
+                    <a href="../index.html#company">Company</a>
+                    <a href="../index.html#contact" class="btn-primary">Contact Us</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="service-hero-content">
+                <div class="service-breadcrumb">
+                    <a href="../index.html">Home</a> / <a href="../index.html#offensive">Offensive Services</a> / <span>Secure Code Review</span>
+                </div>
+                <h1 class="service-title">
+                    Secure Code <span class="gradient-text">Review</span>
+                </h1>
+                <p class="service-subtitle">
+                    Build security into your software from the start. Our expert code reviewers identify vulnerabilities, insecure coding practices, and logic flaws before they reach production.
+                </p>
+                <div class="service-hero-cta">
+                    <a href="../index.html#contact" class="btn-primary btn-large">Request Review</a>
+                    <a href="#features" class="btn-secondary btn-large">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section class="service-benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Secure Code Review</h2>
+                <p>Shift security left with expert code analysis and remediation guidance</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="12" y="16" width="40" height="32" rx="2" stroke="url(#gradBenefit1)" stroke-width="2"/>
+                            <path d="M20 24 L28 24 M20 32 L36 32 M20 40 L32 40" stroke="url(#gradBenefit1)" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M38 24 L40 26 L44 22" stroke="url(#gradBenefit1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Early Vulnerability Detection</h3>
+                    <p>Find and fix security issues during development when remediation costs are 10-100x lower than in production.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M16 32 L28 44 L48 20" stroke="url(#gradBenefit2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="32" cy="32" r="24" stroke="url(#gradBenefit2)" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Reduce Security Debt</h3>
+                    <p>Prevent the accumulation of security vulnerabilities that become harder and more expensive to fix over time.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit3" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="12" y="20" width="40" height="28" rx="2" stroke="url(#gradBenefit3)" stroke-width="2"/>
+                            <path d="M20 28 L28 36 L44 20" stroke="url(#gradBenefit3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Compliance Ready</h3>
+                    <p>Meet OWASP, PCI DSS, HIPAA, and other regulatory requirements for secure software development.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="gradBenefit4" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2F2A99"/>
+                                    <stop offset="100%" stop-color="#1673FF"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="32" cy="24" r="8" stroke="url(#gradBenefit4)" stroke-width="2"/>
+                            <path d="M32 32 L32 44 M24 40 L40 40" stroke="url(#gradBenefit4)" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="52" r="4" stroke="url(#gradBenefit4)" stroke-width="2"/>
+                            <circle cx="32" cy="52" r="4" stroke="url(#gradBenefit4)" stroke-width="2"/>
+                            <circle cx="44" cy="52" r="4" stroke="url(#gradBenefit4)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Developer Training</h3>
+                    <p>Our reviews include detailed explanations that help your team learn secure coding practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="service-features">
+        <div class="container">
+            <div class="feature-row">
+                <div class="feature-content">
+                    <div class="feature-label">EXPERT MANUAL REVIEW</div>
+                    <h2>Human-Led Code Analysis</h2>
+                    <p>Our security experts manually review your code to uncover vulnerabilities that automated tools miss:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Business Logic Flaws</strong>
+                                <p>Identify vulnerabilities in application workflows and authorization</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Authentication & Authorization</strong>
+                                <p>Review session management, access controls, and privilege escalation risks</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Input Validation</strong>
+                                <p>Detect injection vulnerabilities, XSS, and data sanitization issues</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Cryptography Review</strong>
+                                <p>Assess encryption implementation, key management, and crypto misuse</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="stats-visual">
+                        <div class="stat-card">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Reviews Done</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">85%</div>
+                            <div class="stat-label">Issues Found</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Languages</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row reverse">
+                <div class="feature-content">
+                    <div class="feature-label">AUTOMATED SCANNING</div>
+                    <h2>SAST & DAST Integration</h2>
+                    <p>Combine automated tools with expert analysis for comprehensive security coverage:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Static Analysis (SAST)</strong>
+                                <p>Automated source code scanning for common vulnerability patterns</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Dynamic Analysis (DAST)</strong>
+                                <p>Runtime testing of applications to identify exploitable vulnerabilities</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Dependency Analysis</strong>
+                                <p>Identify vulnerable third-party libraries and components (SCA)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Container & IaC Scanning</strong>
+                                <p>Review Docker images, Kubernetes configs, and infrastructure as code</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="threat-timeline">
+                        <div class="timeline-item detected">
+                            <div class="timeline-icon">🤖</div>
+                            <div class="timeline-content">
+                                <strong>Automated Scan</strong>
+                                <p>SAST/DAST analysis</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item analyzed">
+                            <div class="timeline-icon">👨‍💻</div>
+                            <div class="timeline-content">
+                                <strong>Manual Review</strong>
+                                <p>Expert validation</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item contained">
+                            <div class="timeline-icon">✅</div>
+                            <div class="timeline-content">
+                                <strong>Report Delivered</strong>
+                                <p>Actionable findings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-content">
+                    <div class="feature-label">SDLC INTEGRATION</div>
+                    <h2>Secure Development Lifecycle</h2>
+                    <p>Integrate security throughout your development process for continuous protection:</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>CI/CD Pipeline Integration</strong>
+                                <p>Automated security checks in your build and deployment pipelines</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Pull Request Reviews</strong>
+                                <p>Security-focused code review as part of your PR process</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Compliance Checking</strong>
+                                <p>Automated verification of coding standards and security policies</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <div>
+                                <strong>Remediation Support</strong>
+                                <p>Direct collaboration with developers to fix identified issues</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="response-process">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Scan</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Review</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Report</div>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Fix</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Secure Code Review Works</h2>
+                <p>A comprehensive approach to identifying and fixing security vulnerabilities in code</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">1</div>
+                    <h3>Scope Definition</h3>
+                    <p>We work with your team to identify critical applications, components, and security requirements for review.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">2</div>
+                    <h3>Automated & Manual Analysis</h3>
+                    <p>Combine SAST/DAST tools with expert manual review to identify vulnerabilities across your codebase.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h3>Validation & Prioritization</h3>
+                    <p>Verify findings, eliminate false positives, and prioritize issues based on risk and exploitability.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">4</div>
+                    <h3>Reporting & Remediation</h3>
+                    <p>Receive detailed reports with code examples and work directly with developers to implement fixes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Build Security Into Your Software Development</h2>
+                <p>Identify and fix vulnerabilities before they reach production. Request your code review today.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#contact" class="btn-primary btn-large">Request Review</a>
+                    <a href="../index.html#offensive" class="btn-secondary btn-large">View All Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../logo/360-security-group_light.svg" alt="360 Security Group" style="height: 50px;">
+                    </div>
+                    <p>AI-Powered Defensive & Offensive Cybersecurity</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Defensive Services</h4>
+                    <ul>
+                        <li><a href="mdr.html">Managed Detection & Response</a></li>
+                        <li><a href="xdr.html">Extended Detection & Response</a></li>
+                        <li><a href="cti.html">Cyber Threat Intelligence</a></li>
+                        <li><a href="threat-hunting.html">Threat Hunting</a></li>
+                        <li><a href="automation.html">Security Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Offensive Services</h4>
+                    <ul>
+                        <li><a href="penetration-testing.html">Penetration Testing</a></li>
+                        <li><a href="red-teaming.html">Red Teaming</a></li>
+                        <li><a href="breach-simulation.html">Breach & Attack Simulation</a></li>
+                        <li><a href="code-review.html">Secure Code Review</a></li>
+                        <li><a href="ai-security-testing.html">AI Security Testing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../index.html#company">About Us</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 360 Security Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

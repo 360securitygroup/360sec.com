@@ -1,0 +1,30 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradIntegration" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Chain link connection -->
+  <path d="M38 26 L38 22 C38 17 34 13 29 13 L23 13 C18 13 14 17 14 22 L14 26"
+        stroke="url(#gradIntegration)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <path d="M26 38 L26 42 C26 47 30 51 35 51 L41 51 C46 51 50 47 50 42 L50 38"
+        stroke="url(#gradIntegration)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Connecting nodes -->
+  <circle cx="20" cy="24" r="3" fill="url(#gradIntegration)"/>
+  <circle cx="44" cy="40" r="3" fill="url(#gradIntegration)"/>
+
+  <!-- Integration points -->
+  <circle cx="28" cy="28" r="2" fill="url(#gradIntegration)" opacity="0.7"/>
+  <circle cx="36" cy="36" r="2" fill="url(#gradIntegration)" opacity="0.7"/>
+
+  <!-- Connection flow -->
+  <path d="M28 28 Q32 32 36 36" stroke="url(#gradIntegration)" stroke-width="2" fill="none" opacity="0.5" stroke-dasharray="3 3"/>
+
+  <!-- Data flow particles -->
+  <circle cx="30" cy="30" r="1.5" fill="url(#gradIntegration)">
+    <animateMotion path="M0,0 Q4,4 8,8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

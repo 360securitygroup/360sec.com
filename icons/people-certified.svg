@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradCertified" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Graduation cap -->
+  <path d="M32 16 L12 24 L32 32 L52 24 L32 16 Z" fill="url(#gradCertified)"/>
+  <path d="M12 24 L12 32 C12 36 20 40 32 40 C44 40 52 36 52 32 L52 24" stroke="url(#gradCertified)" stroke-width="2" fill="none" opacity="0.6"/>
+
+  <!-- Certificate scroll -->
+  <rect x="20" y="44" width="24" height="16" rx="2" fill="url(#gradCertified)" opacity="0.2"/>
+  <rect x="20" y="44" width="24" height="16" rx="2" stroke="url(#gradCertified)" stroke-width="2" fill="none"/>
+
+  <!-- Certificate lines -->
+  <line x1="24" y1="50" x2="40" y2="50" stroke="url(#gradCertified)" stroke-width="1.5" opacity="0.8"/>
+  <line x1="24" y1="54" x2="36" y2="54" stroke="url(#gradCertified)" stroke-width="1.5" opacity="0.8"/>
+
+  <!-- Certification seal -->
+  <circle cx="48" cy="52" r="6" fill="url(#gradCertified)"/>
+  <path d="M46 52 L47.5 53.5 L50 51" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

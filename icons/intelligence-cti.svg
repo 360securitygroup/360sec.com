@@ -1,0 +1,26 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradCTI" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Magnifying glass -->
+  <circle cx="26" cy="26" r="14" stroke="url(#gradCTI)" stroke-width="2.5" fill="none"/>
+  <line x1="36" y1="36" x2="46" y2="46" stroke="url(#gradCTI)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- AI intelligence data points inside lens -->
+  <circle cx="26" cy="26" r="8" stroke="url(#gradCTI)" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <circle cx="22" cy="24" r="1.5" fill="url(#gradCTI)"/>
+  <circle cx="30" cy="24" r="1.5" fill="url(#gradCTI)"/>
+  <circle cx="26" cy="28" r="1.5" fill="url(#gradCTI)"/>
+  <circle cx="26" cy="22" r="1.5" fill="url(#gradCTI)"/>
+
+  <!-- Data streams -->
+  <path d="M20 18 Q18 16 16 14" stroke="url(#gradCTI)" stroke-width="1.5" opacity="0.5" fill="none"/>
+  <path d="M32 18 Q34 16 36 14" stroke="url(#gradCTI)" stroke-width="1.5" opacity="0.5" fill="none"/>
+
+  <!-- Small data dots -->
+  <circle cx="16" cy="14" r="1" fill="url(#gradCTI)" opacity="0.7"/>
+  <circle cx="36" cy="14" r="1" fill="url(#gradCTI)" opacity="0.7"/>
+</svg>

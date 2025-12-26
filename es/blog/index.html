@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Z0WWKP5NB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8Z0WWKP5NB');
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Ciberseguridad - 360 Security Group</title>
+    <meta name="description" content="Perspectivas expertas sobre tendencias de ciberseguridad, amenazas potenciadas por IA, análisis de brechas y mejores prácticas de seguridad de los investigadores de 360 Security Group.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.360sec.com/es/blog/">
+
+    <!-- Hreflang for multilingual support -->
+    <link rel="alternate" hreflang="en" href="https://www.360sec.com/blog/">
+    <link rel="alternate" hreflang="es" href="https://www.360sec.com/es/blog/">
+    <link rel="alternate" hreflang="x-default" href="https://www.360sec.com/blog/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.360sec.com/es/blog/">
+    <meta property="og:title" content="Blog de Ciberseguridad - 360 Security Group">
+    <meta property="og:description" content="Perspectivas expertas sobre tendencias de ciberseguridad, amenazas potenciadas por IA, análisis de brechas y mejores prácticas de seguridad del equipo de 360 Security Group.">
+    <meta property="og:image" content="https://www.360sec.com/og-image.jpg">
+    <meta property="og:site_name" content="360 Sec">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.360sec.com/es/blog/">
+    <meta name="twitter:title" content="Blog de Ciberseguridad - 360 Security Group">
+    <meta name="twitter:description" content="Perspectivas expertas sobre tendencias de ciberseguridad, amenazas potenciadas por IA, análisis de brechas y mejores prácticas de seguridad.">
+    <meta name="twitter:image" content="https://www.360sec.com/twitter-card.jpg">
+    <meta name="twitter:site" content="@360sec">
+
+    <!-- Favicon and Web App Manifest -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.360sec.com/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.360sec.com/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.360sec.com/favicon-16x16.png">
+    <link rel="manifest" href="https://www.360sec.com/site.webmanifest">
+    <link rel="shortcut icon" href="https://www.360sec.com/favicon.ico">
+    <meta name="theme-color" content="#2F2A99">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Blog Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "360 Security Group Blog",
+      "description": "Perspectivas expertas sobre tendencias de ciberseguridad, amenazas potenciadas por IA, análisis de brechas y mejores prácticas de seguridad",
+      "url": "https://www.360sec.com/es/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "360 Security Group",
+        "url": "https://www.360sec.com",
+        "logo": "https://www.360sec.com/logo/360-security-group_light.svg"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Top Utility Bar -->
+    <div class="top-utility-bar">
+        <div class="container">
+            <div class="utility-content">
+                <div class="utility-right">
+                    <a href="index.html" class="utility-link">Blog</a>
+                    <div class="language-selector">
+                        <button class="lang-btn" aria-label="Seleccionar idioma">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M2 9h14M9 2c-2 2.5-2 5.5-2 7s0 4.5 2 7M9 2c2 2.5 2 5.5 2 7s0 4.5-2 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <span class="arrow-down">▾</span>
+                        </button>
+                        <div class="lang-dropdown">
+                            <a href="../../blog/index.html" class="lang-option">
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </a>
+                            <a href="index.html" class="lang-option active">
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo-container">
+                    <a href="../index.html">
+                        <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" class="logo">
+                    </a>
+                </div>
+                <div class="nav-links">
+                    <div class="nav-dropdown">
+                        <a href="../index.html#services" class="nav-link-dropdown">Servicios Defensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../services/mdr.html">Detección y Respuesta Gestionada</a>
+                            <a href="../services/xdr.html">Detección y Respuesta Extendida</a>
+                            <a href="../services/cti.html">Inteligencia de Amenazas Cibernéticas</a>
+                            <a href="../services/threat-hunting.html">Búsqueda de Amenazas</a>
+                            <a href="../services/automation.html">Automatización de Seguridad</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="../index.html#offensive" class="nav-link-dropdown">Servicios Ofensivos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="../services/penetration-testing.html">Pruebas de Penetración</a>
+                            <a href="../services/red-teaming.html">Red Team</a>
+                            <a href="../services/breach-simulation.html">Simulación de Brechas y Ataques</a>
+                            <a href="../services/code-review.html">Revisión de Código Seguro</a>
+                            <a href="../services/ai-security-testing.html">Pruebas de Seguridad IA</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="index.html" class="nav-link-dropdown">Recursos ▾</a>
+                        <div class="dropdown-content">
+                            <a href="index.html">Blog</a>
+                        </div>
+                    </div>
+                    <a href="../index.html#company">Empresa</a>
+                    <a href="../index.html#contact" class="btn-primary">Contáctenos</a>
+                </div>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="hero-background"></div>
+        <div class="container">
+            <div class="blog-header-content">
+                <div class="blog-breadcrumb">
+                    <a href="../index.html">Inicio</a> / Blog
+                </div>
+                <h1>Perspectivas de Seguridad y <span class="gradient-text">Análisis</span></h1>
+                <p>Perspectivas expertas sobre tendencias de ciberseguridad, amenazas y mejores prácticas de nuestros investigadores y analistas de seguridad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <!-- Featured Post -->
+            <article class="featured-post">
+                <div class="featured-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 120px; height: 120px;">
+                        <defs>
+                            <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2F2A99;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1673FF;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- AI Brain/Circuit -->
+                        <circle cx="100" cy="100" r="60" fill="none" stroke="url(#aiGrad)" stroke-width="3"/>
+                        <circle cx="100" cy="70" r="8" fill="url(#aiGrad)"/>
+                        <circle cx="70" cy="100" r="8" fill="url(#aiGrad)"/>
+                        <circle cx="130" cy="100" r="8" fill="url(#aiGrad)"/>
+                        <circle cx="100" cy="130" r="8" fill="url(#aiGrad)"/>
+                        <circle cx="85" cy="85" r="6" fill="url(#aiGrad)"/>
+                        <circle cx="115" cy="85" r="6" fill="url(#aiGrad)"/>
+                        <circle cx="85" cy="115" r="6" fill="url(#aiGrad)"/>
+                        <circle cx="115" cy="115" r="6" fill="url(#aiGrad)"/>
+                        <line x1="100" y1="70" x2="85" y2="85" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="100" y1="70" x2="115" y2="85" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="70" y1="100" x2="85" y2="85" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="70" y1="100" x2="85" y2="115" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="130" y1="100" x2="115" y2="85" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="130" y1="100" x2="115" y2="115" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="100" y1="130" x2="85" y2="115" stroke="url(#aiGrad)" stroke-width="2"/>
+                        <line x1="100" y1="130" x2="115" y2="115" stroke="url(#aiGrad)" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="featured-content">
+                    <span class="featured-badge">Destacado</span>
+                    <div class="blog-meta">
+                        <span class="blog-category">IA y Tendencias</span>
+                        <span class="blog-date">3 de Octubre, 2025</span>
+                        <span class="blog-reading-time">8 min lectura</span>
+                    </div>
+                    <h2><a href="posts/ai-powered-threats-2025.html">El Aumento de Amenazas Cibernéticas Potenciadas por IA en 2025</a></h2>
+                    <p class="featured-excerpt">
+                        La inteligencia artificial está revolucionando la ciberseguridad, tanto para defensores como atacantes. Descubra cómo el phishing generado por IA, la explotación automatizada de vulnerabilidades y los ataques deepfake están remodelando el panorama de amenazas.
+                    </p>
+                    <div class="blog-author">
+                        <div class="author-avatar">DR</div>
+                        <div class="author-info">
+                            <p class="author-name">Dr. Rebecca Martinez</p>
+                            <p class="author-title">Investigadora Principal de Seguridad</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid">
+                <!-- Entrada: Incidente Salesforce–Salesloft -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
+                            <defs>
+                                <linearGradient id="sfSupplyChainGradEs" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2F2A99;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1673FF;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <rect x="60" y="50" width="80" height="100" rx="10" stroke="url(#sfSupplyChainGradEs)" stroke-width="4" fill="none"/>
+                            <polyline points="70,130 90,105 105,120 135,80" fill="none" stroke="url(#sfSupplyChainGradEs)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="90" cy="105" r="6" fill="url(#sfSupplyChainGradEs)"/>
+                            <circle cx="105" cy="120" r="6" fill="url(#sfSupplyChainGradEs)"/>
+                            <circle cx="135" cy="80" r="6" fill="url(#sfSupplyChainGradEs)"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Cadena de Suministro</span>
+                            <span class="blog-date">15 de Septiembre, 2025</span>
+                            <span class="blog-reading-time">12 min de lectura</span>
+                        </div>
+                        <h2><a href="posts/salesforce-supply-chain-security.html">Anatomía del Incidente Salesforce–Salesloft (Drift)</a></h2>
+                        <p class="blog-excerpt">
+                            Analice la brecha Salesforce–Salesloft de agosto de 2025, cómo los atacantes manipularon la actualización del conector y qué controles aplicar de inmediato para proteger sus integraciones SaaS.
+                        </p>
+                        <div class="blog-author">
+                            <div class="author-avatar">DR</div>
+                            <div class="author-info">
+                                <p class="author-name">Dra. Rebecca Martinez</p>
+                                <p class="author-title">Investigadora Principal de Seguridad</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- Post: Cadena de Suministro Salesforce -->
+                
+
+                <!-- Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
+                            <defs>
+                                <linearGradient id="zeroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2F2A99;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1673FF;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Zero Trust Shield with Checkmark -->
+                            <path d="M100 40 L150 65 L150 110 C150 140 125 160 100 170 C75 160 50 140 50 110 L50 65 Z" fill="none" stroke="url(#zeroGrad)" stroke-width="4"/>
+                            <path d="M75 100 L90 115 L125 75" fill="none" stroke="url(#zeroGrad)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="100" cy="100" r="35" fill="none" stroke="url(#zeroGrad)" stroke-width="2" stroke-dasharray="5,5"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Mejores Prácticas</span>
+                            <span class="blog-date">5 de Enero, 2025</span>
+                            <span class="blog-reading-time">10 min lectura</span>
+                        </div>
+                        <h2><a href="posts/zero-trust-implementation.html">Arquitectura Zero Trust: Guía Práctica de Implementación</a></h2>
+                        <p class="blog-excerpt">
+                            Migrar a Zero Trust no es solo un cambio tecnológico - es una transformación fundamental de seguridad. Aprenda el enfoque paso a paso para implementar Zero Trust en su organización.
+                        </p>
+                        <div class="blog-author">
+                            <div class="author-avatar">MC</div>
+                            <div class="author-info">
+                                <p class="author-name">Maria Chen</p>
+                                <p class="author-title">Arquitecta de Soluciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-card-image">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width: 80px; height: 80px;">
+                            <defs>
+                                <linearGradient id="xdrGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2F2A99;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1673FF;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Analytics/Comparison Chart -->
+                            <rect x="50" y="120" width="30" height="50" fill="url(#xdrGrad)" rx="3"/>
+                            <rect x="85" y="90" width="30" height="80" fill="url(#xdrGrad)" rx="3"/>
+                            <rect x="120" y="70" width="30" height="100" fill="url(#xdrGrad)" rx="3"/>
+                            <line x1="40" y1="60" x2="160" y2="60" stroke="url(#xdrGrad)" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="65" cy="50" r="6" fill="url(#xdrGrad)"/>
+                            <circle cx="100" cy="40" r="6" fill="url(#xdrGrad)"/>
+                            <circle cx="135" cy="30" r="6" fill="url(#xdrGrad)"/>
+                            <path d="M65 50 L100 40 L135 30" fill="none" stroke="url(#xdrGrad)" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category">Tecnología</span>
+                            <span class="blog-date">28 de Diciembre, 2024</span>
+                            <span class="blog-reading-time">7 min lectura</span>
+                        </div>
+                        <h2><a href="posts/xdr-vs-siem.html">XDR vs SIEM: ¿Qué Solución es Adecuada para su Organización?</a></h2>
+                        <p class="blog-excerpt">
+                            Entender las diferencias entre XDR y SIEM es crucial para las operaciones de seguridad modernas. Compare capacidades, casos de uso y ROI para tomar una decisión informada.
+                        </p>
+                        <div class="blog-author">
+                            <div class="author-avatar">DR</div>
+                            <div class="author-info">
+                                <p class="author-name">Dr. Rebecca Martinez</p>
+                                <p class="author-title">Investigadora Principal de Seguridad</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="../../logo/360-security-group_light.svg" alt="360 Security Group" class="footer-logo">
+                    <p>Soluciones líderes en ciberseguridad para la empresa moderna.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Defensivos</h4>
+                    <ul>
+                        <li><a href="../services/mdr.html">MDR</a></li>
+                        <li><a href="../services/xdr.html">XDR</a></li>
+                        <li><a href="../services/cti.html">Inteligencia de Amenazas</a></li>
+                        <li><a href="../services/threat-hunting.html">Búsqueda de Amenazas</a></li>
+                        <li><a href="../services/automation.html">Automatización</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios Ofensivos</h4>
+                    <ul>
+                        <li><a href="../services/penetration-testing.html">Pruebas de Penetración</a></li>
+                        <li><a href="../services/red-teaming.html">Red Team</a></li>
+                        <li><a href="../services/breach-simulation.html">Simulación de Brechas</a></li>
+                        <li><a href="../services/code-review.html">Revisión de Código</a></li>
+                        <li><a href="../services/ai-security-testing.html">Pruebas de Seguridad IA</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="../index.html#company">Por Qué Elegirnos</a></li>
+                        <li><a href="../index.html#experience">Nuestra Experiencia</a></li>
+                        <li><a href="index.html">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="../index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 360 Security Group. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

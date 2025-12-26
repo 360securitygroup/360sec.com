@@ -1,0 +1,31 @@
+# robots.txt for www.360sec.com
+# Updated: 2024-10-20
+
+# Allow all crawlers to access all content
+User-agent: *
+Allow: /
+
+# Sitemap locations
+Sitemap: https://www.360sec.com/sitemap.xml
+Sitemap: https://www.360sec.com/sitemap-es.xml
+
+# Block access to admin or private areas (if they exist in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Block search/utility pages (if they exist)
+# Disallow: /search
+# Disallow: /search?
+
+# Allow access to CSS and JS for proper rendering
+Allow: /styles.css
+Allow: /script.js
+Allow: /*.css
+Allow: /*.js
+
+# Allow access to images and icons for proper indexing
+Allow: /logo/
+Allow: /icons/
+
+# Crawl-delay (optional - remove if not needed)
+# Crawl-delay: 1

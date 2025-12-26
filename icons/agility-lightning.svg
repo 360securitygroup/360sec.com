@@ -1,0 +1,20 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradAgility" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Lightning bolt -->
+  <path d="M36 8 L22 32 L32 32 L28 56 L50 24 L38 24 Z"
+        fill="url(#gradAgility)"/>
+
+  <!-- Speed lines -->
+  <line x1="14" y1="18" x2="20" y2="18" stroke="url(#gradAgility)" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <line x1="10" y1="24" x2="18" y2="24" stroke="url(#gradAgility)" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <line x1="12" y1="30" x2="20" y2="30" stroke="url(#gradAgility)" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+
+  <!-- Solid foundation base -->
+  <rect x="20" y="48" width="24" height="4" rx="2" fill="url(#gradAgility)" opacity="0.6"/>
+  <rect x="24" y="52" width="16" height="3" rx="1.5" fill="url(#gradAgility)" opacity="0.4"/>
+</svg>

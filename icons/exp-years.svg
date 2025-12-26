@@ -1,0 +1,24 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradYears" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Calendar/Timeline icon -->
+  <rect x="8" y="10" width="32" height="28" rx="3" stroke="url(#gradYears)" stroke-width="2" fill="none"/>
+
+  <!-- Top bar -->
+  <line x1="8" y1="16" x2="40" y2="16" stroke="url(#gradYears)" stroke-width="2"/>
+
+  <!-- Timeline markers -->
+  <circle cx="16" cy="24" r="2" fill="url(#gradYears)"/>
+  <circle cx="24" cy="24" r="2" fill="url(#gradYears)"/>
+  <circle cx="32" cy="24" r="2" fill="url(#gradYears)"/>
+
+  <!-- Progress line -->
+  <path d="M16 24 L24 28 L32 24" stroke="url(#gradYears)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Year indicator -->
+  <text x="24" y="34" text-anchor="middle" font-size="8" fill="url(#gradYears)" font-weight="bold">14+</text>
+</svg>

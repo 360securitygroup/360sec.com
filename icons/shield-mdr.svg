@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradShield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Shield outline -->
+  <path d="M32 6L12 14v12c0 12.4 8.42 24 20 28 11.58-4 20-15.6 20-28V14L32 6z"
+        stroke="url(#gradShield)" stroke-width="2.5" fill="none"/>
+  <!-- Inner shield layers -->
+  <path d="M32 12L18 18v9c0 8.7 5.9 16.8 14 19.6 8.1-2.8 14-10.9 14-19.6v-9L32 12z"
+        fill="url(#gradShield)" opacity="0.2"/>
+  <!-- AI detection waves -->
+  <circle cx="32" cy="30" r="3" fill="url(#gradShield)"/>
+  <circle cx="32" cy="30" r="6" stroke="url(#gradShield)" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <circle cx="32" cy="30" r="9" stroke="url(#gradShield)" stroke-width="1" fill="none" opacity="0.3"/>
+</svg>

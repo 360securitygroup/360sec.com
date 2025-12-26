@@ -1,0 +1,30 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradBreach" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Flame shape representing attack simulation -->
+  <path d="M32 12 C32 12, 28 18, 28 24 C28 28, 30 30, 32 32 C34 30, 36 28, 36 24 C36 18, 32 12, 32 12Z"
+        fill="url(#gradBreach)" opacity="0.6"/>
+
+  <!-- Main flame body -->
+  <path d="M32 18 C32 18, 24 26, 24 36 C24 44, 27.6 50, 32 50 C36.4 50, 40 44, 40 36 C40 26, 32 18, 32 18Z"
+        fill="url(#gradBreach)" opacity="0.4"/>
+
+  <!-- Outer flame -->
+  <path d="M32 22 C32 22, 20 32, 20 40 C20 48, 24.4 54, 32 54 C39.6 54, 44 48, 44 40 C44 32, 32 22, 32 22Z"
+        stroke="url(#gradBreach)" stroke-width="2" fill="none"/>
+
+  <!-- Attack simulation data points -->
+  <circle cx="28" cy="35" r="1.5" fill="url(#gradBreach)"/>
+  <circle cx="36" cy="35" r="1.5" fill="url(#gradBreach)"/>
+  <circle cx="32" cy="40" r="1.5" fill="url(#gradBreach)"/>
+
+  <!-- Simulation waves emanating -->
+  <circle cx="32" cy="40" r="4" stroke="url(#gradBreach)" stroke-width="1" fill="none" opacity="0.4">
+    <animate attributeName="r" from="4" to="10" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="0.4" to="0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+</svg>

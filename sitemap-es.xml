@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage Spanish -->
+  <url>
+    <loc>https://www.360sec.com/es/</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/"/>
+  </url>
+
+  <!-- Defensive Services Spanish -->
+  <url>
+    <loc>https://www.360sec.com/es/services/mdr.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/mdr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/mdr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/mdr.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/xdr.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/xdr.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/xdr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/xdr.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/cti.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/cti.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/cti.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/cti.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/threat-hunting.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/threat-hunting.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/threat-hunting.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/threat-hunting.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/automation.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/automation.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/automation.html"/>
+  </url>
+
+  <!-- Offensive Services Spanish -->
+  <url>
+    <loc>https://www.360sec.com/es/services/penetration-testing.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/penetration-testing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/penetration-testing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/penetration-testing.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/red-teaming.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/red-teaming.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/red-teaming.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/red-teaming.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/breach-simulation.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/breach-simulation.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/breach-simulation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/breach-simulation.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/code-review.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/code-review.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/code-review.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/code-review.html"/>
+  </url>
+
+  <url>
+    <loc>https://www.360sec.com/es/services/ai-security-testing.html</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.360sec.com/services/ai-security-testing.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.360sec.com/es/services/ai-security-testing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.360sec.com/services/ai-security-testing.html"/>
+  </url>
+
+</urlset>

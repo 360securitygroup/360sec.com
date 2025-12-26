@@ -1,0 +1,31 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradTalent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2F2A99"/>
+      <stop offset="100%" stop-color="#1673FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Center person (lead) -->
+  <circle cx="32" cy="24" r="5" fill="url(#gradTalent)"/>
+  <path d="M22 42 C22 37 26 33 32 33 C38 33 42 37 42 42 L42 48 L22 48 Z"
+        fill="url(#gradTalent)"/>
+
+  <!-- Left person -->
+  <circle cx="16" cy="28" r="4" fill="url(#gradTalent)" opacity="0.7"/>
+  <path d="M8 46 C8 42 11 39 16 39 C21 39 24 42 24 46 L24 50 L8 50 Z"
+        fill="url(#gradTalent)" opacity="0.7"/>
+
+  <!-- Right person -->
+  <circle cx="48" cy="28" r="4" fill="url(#gradTalent)" opacity="0.7"/>
+  <path d="M40 46 C40 42 43 39 48 39 C53 39 56 42 56 46 L56 50 L40 50 Z"
+        fill="url(#gradTalent)" opacity="0.7"/>
+
+  <!-- Certification badges/stars -->
+  <path d="M32 14 L33 17 L36 17 L33.5 19 L34.5 22 L32 20 L29.5 22 L30.5 19 L28 17 L31 17 Z"
+        fill="url(#gradTalent)" opacity="0.6"/>
+
+  <!-- Skill indicators -->
+  <circle cx="26" cy="32" r="1.5" fill="url(#gradTalent)" opacity="0.5"/>
+  <circle cx="32" cy="30" r="1.5" fill="url(#gradTalent)" opacity="0.5"/>
+  <circle cx="38" cy="32" r="1.5" fill="url(#gradTalent)" opacity="0.5"/>
+</svg>
