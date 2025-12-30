@@ -232,8 +232,25 @@
                     Energy awareness is often discussed in big terms—data centers, grids, and industry. But daily habits matter too, including the small "always-on" screens that quietly draw power on desks and in offices. As part of a series of simple experiments focused on <strong>sustainability and low energy use</strong>, this project explores a calmer way to stay informed about cybersecurity: an <strong>e-ink briefing display</strong> that updates periodically and otherwise rests in a low-power state.
                 </p>
 
+                <h2>The Hardware: Seeed Studio reTerminal E1002</h2>
+
                 <p>
-                    The concept is straightforward: deliver useful security awareness at a glance, without browsers, notifications, or an always-on monitor. A compact dashboard showing recent items from CISA's Known Exploited Vulnerabilities (KEV), security news headlines, and a minimal status line—all on a display that consumes virtually no power when idle.
+                    The dashboard is built on a <strong>Seeed Studio reTerminal E1002</strong>, which combines an <strong>ESP32-S3 microcontroller</strong> with an e-ink display. This compact device shows a snapshot of critical security information:
+                </p>
+
+                <ul>
+                    <li>Recent items from <strong>CISA's Known Exploited Vulnerabilities (KEV)</strong> catalog</li>
+                    <li>A short list of <strong>security news headlines</strong></li>
+                    <li>A minimal status line showing last update time and battery state</li>
+                </ul>
+
+                <figure class="post-image">
+                    <img src="../images/eink-cybersecurity-dashboard.png" alt="E-Ink Cybersecurity Dashboard showing CISA KEV vulnerabilities and security news headlines on a Seeed Studio reTerminal E1002" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <figcaption style="text-align: center; margin-top: 12px; color: #666; font-size: 0.9em;">The e-ink cybersecurity dashboard displaying CISA KEV vulnerabilities and security news headlines</figcaption>
+                </figure>
+
+                <p>
+                    The intention is to deliver <strong>useful awareness at a glance</strong>, without browsers, notifications, or an always-on monitor. The display consumes virtually no power when idle, making it an ideal solution for continuous security awareness.
                 </p>
 
                 <h2>Why E-Ink Supports Sustainability</h2>
